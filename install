@@ -1,9 +1,15 @@
 #!/bin/sh
 
-mkdir -p ~/.local/share/nvim/site
+# Old script:
+# mkdir -p ~/.local/share/nvim/site
+# ln -s ~/.local/share/nvim/site ~/.vim
+# ln -s ~/.config/nvim/init.vim ~/.vimrc
 
 # Usage of symbolic links:
 #   ln -s /path/to/original /path/to/link
 
-ln -s ~/.local/share/nvim/site ~/.vim
-ln -s ~/.config/nvim/init.vim ~/.vimrc
+# Create `undodir` directory.
+mkdir -p ~/.vim/undodir/
+
+# Create a symbolic link to global .vimrc configuration.
+ln -s ~/.config/nvim/.vimrc ~/.vimrc
