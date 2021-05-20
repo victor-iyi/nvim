@@ -45,7 +45,9 @@ Plug 'neoclide/mycomment.vim'
 Plug 'sansyrox/vim-python-virtualenv'
 
 " Language client
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
+if has('nvim')
+  Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
+end
 
 " Syntactic language support
 Plug 'cespare/vim-toml'
