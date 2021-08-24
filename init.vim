@@ -141,9 +141,15 @@ set wildmode=list:longest
 set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,.DS_Store,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor
 
 " Use narrow tabs
+<<<<<<< Updated upstream
 set shiftwidth=2              " Indentation.
 set softtabstop=2             " Amount of tabuation to add when <TAB> is pressed.
 set tabstop=2                 " Uses tabs as spaces.
+=======
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+>>>>>>> Stashed changes
 set expandtab
 set autoindent
 set smarttab
