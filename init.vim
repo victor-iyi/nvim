@@ -103,7 +103,6 @@ end
 " =============================================================================
 " =============================================================================
 filetype plugin indent on
-set autoindent
 set timeoutlen=300          " http://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
 set encoding=utf-8
 set scrolloff=8
@@ -147,6 +146,7 @@ set softtabstop=2             " Amount of tabuation to add when <TAB> is pressed
 set tabstop=2                 " Uses tabs as spaces.
 set expandtab
 set autoindent
+set smarttab
 
 " Wrapping options
 set formatoptions=tc          " Wrap text and comments using textwidth
@@ -313,6 +313,7 @@ let g:latex_fold_sections = []
 let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
 let g:rustfmt_fail_silently = 0
+let g:rustfmt_options='--config-path ~/.config/rustfmt/rustfmt.toml'
 
 if has('macunix')
   let g:rust_clip_command = 'pbcopy'
@@ -645,6 +646,8 @@ if has("autocmd")
   " https://stackoverflow.com/questions/31449496/vim-ignore-specific-file-in-autocommand
   au BufReadPost * if expand('%:p') !~# '\m/\.git/' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab|set softtabstop=2
 
 " Follow Python code style rules
 au Filetype python source ~/.config/nvim/scripts/fourspaces.vim
