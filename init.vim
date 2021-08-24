@@ -142,9 +142,9 @@ set wildmode=list:longest
 set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,.DS_Store,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor
 
 " Use narrow tabs
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftwidth=2              " Indentation.
+set softtabstop=2             " Amount of tabuation to add when <TAB> is pressed.
+set tabstop=2                 " Uses tabs as spaces.
 set expandtab
 set autoindent
 
@@ -166,7 +166,8 @@ set gdefault
 " # GUI settings
 " =============================================================================
 " =============================================================================
-set guifont=FiraCode_Nerd_Font:h11
+set guifont=Cascadia_Code:h11
+" set guifont=FiraCode_Nerd_Font:h11
 set guioptions-=T             " Remove toolbar
 set vb t_vb=                  " No more beeps
 set backspace=indent,eol,start 
