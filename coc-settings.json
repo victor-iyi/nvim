@@ -1,15 +1,8 @@
 {
   "python.linting.pylintEnabled": false,
   "python.linting.pep8Enabled": true,
-<<<<<<< Updated upstream
   "python.linting.enabled": true,
   "python.linting.pep8Args": [
       "--ignore E701,E251"
   ]
-=======
-  "python.linting.pep8Args": [
-    "--ignore E251,E701"
-  ],
-  "python.linting.enabled": true
->>>>>>> Stashed changes
 }
