@@ -27,6 +27,8 @@ Plug 'justinmk/vim-sneak'
 " GUI enhancements
 Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
 
