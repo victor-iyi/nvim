@@ -25,14 +25,14 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'justinmk/vim-sneak'
 
 " GUI enhancements
+Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
 
 " NERDTree
 Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Fuzzy finder
 Plug 'airblade/vim-rooter'
@@ -43,6 +43,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/mycomment.vim'
 Plug 'sansyrox/vim-python-virtualenv'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/lsp_extensions.nvim'
+Plug 'nvim-lua/completion-nvim'
 
 " Language client
 if has('nvim')
@@ -99,12 +103,69 @@ end
 
 " =============================================================================
 " =============================================================================
+" # LSP Configuration
+" =============================================================================
+" =============================================================================
+lua << END
+local lspconfig = require('lspconfig')
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  --Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+
+  -- Forward to other plugins
+  require'completion'.on_attach(client)
+end
+
+local servers = { "rust_analyzer" }
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = true,
+    signs = true,
+    update_in_insert = true,
+  }
+)
+END
+
+
+" =============================================================================
+" =============================================================================
 " # Editor settings
 " =============================================================================
 " =============================================================================
 filetype plugin indent on
 set timeoutlen=300          " http://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
-set encoding=utf-8
+set encoding=UTF-8
 set scrolloff=8
 set noshowmode
 set hidden
@@ -112,7 +173,7 @@ set nowrap
 set nojoinspaces
 
 set printfont=:h10
-set printencoding=utf-8
+set printencoding=UTF-8
 set printoptions=paper:letter
 set signcolumn=yes                          " Always show the sign column.
                                             " Otherwise it would shift the
@@ -166,8 +227,8 @@ set gdefault
 " # GUI settings
 " =============================================================================
 " =============================================================================
-set guifont=Cascadia_Code:h11
-" set guifont=FiraCode_Nerd_Font:h11
+set guifont=CaskaydiaCove_Nerd_Font:h11
+" set guifont=FiraCode\ Nerd\ Font:h11
 set guioptions-=T             " Remove toolbar
 set vb t_vb=                  " No more beeps
 set backspace=indent,eol,start 
@@ -237,7 +298,9 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 let g:ctrlp_use_caching = 0
 
 " Airline
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
 
 " Server commands.
 "
@@ -422,8 +485,10 @@ nnoremap <leader>u :UndotreeShow<CR>
 " nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 
 ""NERDTree
-noremap <leader>s :Rg
 let g:fzf_layout = { 'down': '~20%' }
+let g:webdevicons_enable_nerdtree = 1
+
+noremap <leader>s :Rg
 command! -bang -nargs=* Rg
 nnoremap <Leader>pt :NERDTreeToggle<Enter>
 nnoremap <silent> <Leader>pv :NERDTreeFind<CR>
