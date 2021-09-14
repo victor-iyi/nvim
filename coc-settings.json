@@ -6,11 +6,16 @@
     "python.linting.pep8Args": [
         "--ignnore E251,E701" 
     ],
+
     // Pydocstyle
     "python.linting.pydocstyleArgs": [
         "--ignore E251"
-    ]
+    ],
+
     // Python language server.
     // "pyls.plugins.mccabe.enabled":  true,
     // "pyls.plugins.mccabe.threshold": 25
+
+    // Rust Analyzer
+    "rust-analyzer.cargo.target": "aarch64-apple-darwin"
 }
