@@ -404,7 +404,7 @@ let g:localvimrc_ask = 0
 " See https://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
 " for more info on `nnoremap`.
 
-" Source ~/.config/nvim/init.vim
+" Source vim configurations
 map <C-s> :source ~/.config/nvim/init.vim<CR>
 
 " Search result centered please
@@ -564,6 +564,9 @@ nnoremap k gk
 " =============================================================================
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Source plug-config
+source ~/.config/nvim/plug-config/coc.vim
+
 " 'Smart' navigation
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by

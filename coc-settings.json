@@ -1,21 +1,21 @@
 {
-    // Python linting
-    "python.linting.enabled": true,
-    // PEP8 linting
-    "python.linting.pep8Enabled": true,
-    "python.linting.pep8Args": [
-        "--ignnore E251,E701" 
-    ],
+  // Python linting
+  "python.linting.enabled": true,
+  // PEP8 linting
+  "python.linting.pep8Enabled": true,
+  "python.linting.pep8Args": [
+      "--ignnore E251,E701" 
+  ],
 
-    // Pydocstyle
-    "python.linting.pydocstyleArgs": [
-        "--ignore E251"
-    ],
+  // Pydocstyle
+  "python.linting.pydocstyleArgs": [
+      "--ignore E251"
+  ],
 
-    // Python language server.
-    // "pyls.plugins.mccabe.enabled":  true,
-    // "pyls.plugins.mccabe.threshold": 25
+  // Python language server.
+  // "pyls.plugins.mccabe.enabled":  true,
+  // "pyls.plugins.mccabe.threshold": 25
 
-    // Rust Analyzer
-    "rust-analyzer.cargo.target": "aarch64-apple-darwin"
+  // Rust Analyzer
+  "rust-analyzer.cargo.target": "aarch64-apple-darwin"
 }
