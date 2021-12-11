@@ -24,6 +24,9 @@ Plug 'ciaranm/securemodelines'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'justinmk/vim-sneak'
 
+" Colorschemes
+Plug 'ayu-theme/ayu-vim'
+
 " GUI enhancements
 Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
@@ -102,6 +105,11 @@ end
 " PlugSnapshot  [!] [output path] - Generate script for restoring current
 " snapshot of the plugins.
 
+" Colorschemes.
+set termguicolors
+let ayucolor = "dark"
+" let ayucolor = "mirage"
+colorscheme ayu
 
 " =============================================================================
 " =============================================================================
