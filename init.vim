@@ -403,6 +403,17 @@ let g:python3_host_prog='/usr/local/bin/python3'
 let g:localvimrc_ask = 0
 
 
+" =============================================================================
+" =============================================================================
+" # LSP Configuration
+" =============================================================================
+" =============================================================================
+" See: https://vimawesome.com/plugin/telescope-nvim-care-of-itself
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " =============================================================================
 " =============================================================================
