@@ -34,6 +34,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
+Plug 'terryma/vim-multiple-cursors'
 
 " NERDTree
 Plug 'preservim/nerdtree'
@@ -312,6 +313,25 @@ let g:ctrlp_use_caching = 0
 let g:airline_powerline_fonts = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
+
+" Multi-cursor
+" SEE: https://github.com/terryma/vim-multiple-cursors
+" let g:multi_cursor_use_default_mapping = 0
+
+" Default mapping.
+" let g:multi_cursor_start_word_key       = '<C-n>'
+" let g:multi_cursor_select_all_word_key  = '<A-n>'
+" let g:multi_cursor_start_key            = 'g<C-n>'
+" let g:multi_cursor_select_all_key       = 'g<A-n>'
+" let g:multi_cursor_next_key             = '<C-n>'
+" let g:multi_cursor_prev_key             = '<C-p>'
+" let g:multi_cursor_skip_key             = '<C-x>'
+" let g:multi_curosr_quit_key             = '<Esc>'
+"
+" NOTE: Please make sure to always map something to `g:multi_cursor_quit_key`,
+" otherwise, you'll have a tough time quitting from multi-cursor mode.
+
+" Default mapping.
 
 " Brancket pair colorizer
 " https://github.com/luochen1990/rainbow
