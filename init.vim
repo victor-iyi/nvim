@@ -48,6 +48,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/mycomment.vim'
 Plug 'sansyrox/vim-python-virtualenv'
+Plug 'luochen1990/rainbow'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp_extensions.nvim'
@@ -311,6 +312,11 @@ let g:ctrlp_use_caching = 0
 let g:airline_powerline_fonts = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
+
+" Brancket pair colorizer
+" https://github.com/luochen1990/rainbow
+" set to 0 if you want to enable it later via :RainbowToggle
+let g:rainbow_active = 1
 
 " Server commands.
 "
