@@ -33,6 +33,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
+" NOTE: ctrl + o => to go back to last cursor position.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -118,3 +119,5 @@ nnoremap <silent> <space>a  :CocAction<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"
+" NOTE: ctrl + o => to go back to last cursor position.
