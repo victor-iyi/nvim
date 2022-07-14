@@ -50,6 +50,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/mycomment.vim'
 Plug 'sansyrox/vim-python-virtualenv'
 Plug 'luochen1990/rainbow'
+Plug 'github/copilot.vim'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp_extensions.nvim'
@@ -525,6 +526,12 @@ nnoremap <silent> <Leader>vr :vertical resize 30<CR>
 " Move selected lines up or down.
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+" nnoremap <A-j> :m .+1<CR>==
+" nnoremap <A-k> :m .-2<CR>==
+" inoremap <A-j> <Esc>:m .+1<CR>==gi
+" inoremap <A-k> <Esc>:m .-2<CR>==gi
+" vnoremap <A-j> :m '>+1<CR>gv=gv
+" vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " Project history tree.
 nnoremap <leader>u :UndotreeShow<CR>
