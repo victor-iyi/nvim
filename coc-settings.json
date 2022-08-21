@@ -17,5 +17,6 @@
   // "pyls.plugins.mccabe.threshold": 25
 
   // Rust Analyzer
+  "rust-analyzer.enable":  true,
   "rust-analyzer.cargo.target": "aarch64-apple-darwin"
 }

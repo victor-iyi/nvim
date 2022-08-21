@@ -30,10 +30,10 @@ let g:ctrlp_use_caching = 0
 " rust - L.S. can be changed to use 'stable' | 'beta' | 'nightly'
 "
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'rust': ['rust-analyzer'],
     \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'python': ['/Library/Frameworks/Python.framework/Versions/3.8/bin/pyls'],
+    \ 'python': ['/Library/Frameworks/Python.framework/Versions/3.10/bin/pyls'],
     \ }
 
 " NOTE: If you're using Plug mapping, you shouldn't use `noremap` mappings.
