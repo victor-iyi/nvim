@@ -56,6 +56,7 @@ lnoremap <C-k> <Esc>
 tnoremap <C-k> <Esc>
 
 " Ctrl+h to stop searching
+" Disable search highlight
 vnoremap <C-h> :nohlsearch<cr>
 nnoremap <C-h> :nohlsearch<cr>
 
@@ -63,6 +64,10 @@ nnoremap <C-h> :nohlsearch<cr>
 inoremap <C-f> :sus<cr>
 vnoremap <C-f> :sus<cr>
 nnoremap <C-f> :sus<cr>
+
+" Multi-cursor
+" Hoempage: https://github.com/mg979/vim-visual-multi
+" Mappings: https://github.com/mg979/vim-visual-multi/wiki/Mappings#full-mappings-list
 
 
 " =============================================================================
