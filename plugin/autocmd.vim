@@ -17,6 +17,8 @@ if has("autocmd")
   au BufReadPost * if expand('%:p') !~# '\m/\.git/' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab|set softtabstop=2
+
 " Follow Python code style rules
 au Filetype python source ~/.config/nvim/scripts/fourspaces.vim
 au Filetype python set colorcolumn=79

@@ -3,7 +3,8 @@
 " # Let
 " =============================================================================
 " =============================================================================
-
+"
+"
 " Button used for `<leader>`.
 let mapleader = "\<Space>"
 
@@ -23,7 +24,33 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 let g:ctrlp_use_caching = 0
 
 " Airline
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+
+" Multi-cursor
+" SEE: https://github.com/terryma/vim-multiple-cursors
+" let g:multi_cursor_use_default_mapping = 0
+
+" Default mapping.
+" let g:multi_cursor_start_word_key       = '<C-n>'
+" let g:multi_cursor_select_all_word_key  = '<A-n>'
+" let g:multi_cursor_start_key            = 'g<C-n>'
+" let g:multi_cursor_select_all_key       = 'g<A-n>'
+" let g:multi_cursor_next_key             = '<C-n>'
+" let g:multi_cursor_prev_key             = '<C-p>'
+" let g:multi_cursor_skip_key             = '<C-x>'
+" let g:multi_curosr_quit_key             = '<Esc>'
+"
+" NOTE: Please make sure to always map something to `g:multi_cursor_quit_key`,
+" otherwise, you'll have a tough time quitting from multi-cursor mode.
+
+" Default mapping.
+
+" Brancket pair colorizer
+" https://github.com/luochen1990/rainbow
+" set to 0 if you want to enable it later via :RainbowToggle
+let g:rainbow_active = 1
 
 " Server commands.
 "
@@ -66,6 +93,7 @@ let g:lightline = {
       \   'filename':  'LightlineFilename',
       \   'cocstatus': 'coc#status'
       \ },
+      \ 'colorscheme': 'nightfly',
       \ }
 
 function! LightlineFilename()
@@ -99,6 +127,7 @@ let g:latex_fold_sections = []
 let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
 let g:rustfmt_fail_silently = 0
+let g:rustfmt_options='--config-path ~/.config/rustfmt/rustfmt.toml'
 
 if has('macunix')
   let g:rust_clip_command = 'pbcopy'

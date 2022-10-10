@@ -121,4 +121,5 @@ nnoremap <silent> <space>a  :CocAction<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "
-" NOTE: ctrl + o => to go back to last cursor position.
+" NOTE: ctrl + o => to go back to last cursor positio
+
