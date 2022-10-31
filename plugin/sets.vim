@@ -87,8 +87,8 @@ set gdefault
 " # GUI settings
 " =============================================================================
 " =============================================================================
-" set guifont=CaskaydiaCove_Nerd_Font:h11
-set guifont=Victor\ Mono:h11
+set guifont=CaskaydiaCove_Nerd_Font:h11
+" set guifont=Victor\ Mono:h11
 " set guifont=FiraCode\ Nerd\ Font:h11
 set guioptions-=T             " Remove toolbar
 set vb t_vb=                  " No more beeps
