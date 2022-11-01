@@ -34,6 +34,9 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
 Plug 'mg979/vim-visual-multi'
 
+" TMUX/VIM navigator
+Plug 'christoomey/vim-tmux-navigator'
+
 " NERDTree
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'

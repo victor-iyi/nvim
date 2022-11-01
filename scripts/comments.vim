@@ -69,6 +69,8 @@ let s:comment_begin = {
       \"make"       : "# ",
       \"sh"         : "# ",
       \"conf"       : "# ",
+      \"tmux"       : "# ",
+      \"gitignore"  : "# ",
       \"zsh"        : "# ",
       \"dosini"     : "# ",
       \"yaml"       : "# ",

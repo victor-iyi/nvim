@@ -109,6 +109,13 @@ nnoremap <Leader>pt :NERDTreeToggle<Enter>
 nnoremap <silent> <Leader>pv :NERDTreeFind<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
 
+" TMUX/vim navigator
+noremap <slient> {Left-Mapping} :<C-U>TmuxNavigateLeft<cr>
+noremap <slient> {Down-Mapping} :<C-U>TmuxNavigateDown<cr>
+noremap <slient> {Up-Mapping} :<C-U>TmuxNavigateUp<cr>
+noremap <slient> {Right-Mapping} :<C-U>TmuxNavigateRight<cr>
+noremap <slient> {Previous-Mapping} :<C-U>TmuxNavigatePrevious<cr>
+
 ""
 " =============================================================================
 " Editor Mappings.
@@ -180,7 +187,7 @@ nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+vnoremap <A-k> :m '<-1<CR>gv=gv
 
 " 'Smart' navigation
 " Use tab for trigger completion with characters ahead and navigate.

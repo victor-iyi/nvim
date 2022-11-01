@@ -112,6 +112,9 @@ if executable('rg')
   set grepformat=%f:%l:%c:%m
 endif
 
+" TMUX/vim navigator
+let g:tmux_navigator_no_mappings = 1
+
 " JavaScript
 let javascript_fold=0
 
