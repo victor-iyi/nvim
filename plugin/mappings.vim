@@ -16,6 +16,11 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
+" Center your cursor
+" zz - center of the window
+" zt - top of the window
+" zb - bottom of the window
+
 " Very magic by default
 nnoremap ? ?\v
 nnoremap / /\v
