@@ -1,37 +1,45 @@
 # `nvim` configuration
 
 My wacky `nvim` configuration. I have a [former `.vimrc`] configuration on my
-Github gist
-
-[former `.vimrc`]: https://gist.github.com/victor-iyi/f30b8f8a46a6e3711e4ade16a8179a01
-[Github gist]: https://gist.github.com/victor-iyi/
+[Github gist]
 
 ## Requirements
 
-- [Alacritty] + [zsh] (recommended)
-- `nvim` v0.5+
+- Terminal + [zsh] (iTerm recommended)
+- `nvim` v0.8+
 - `pynvim` & `neovim` - `pip install pynvim neovim`
 - `lua` & `luarocks` for telescope. - `brew install lua luarocks`
-
-[Alacritty]: https://github.com/alacritty/alacritty
-[zsh]: https://github.com/ohmyzsh/ohmyzsh
 
 ## Usage
 
 Clone repo into `~/.config/nvim/` directory.
 
 ```sh
-$ cd ~/.config/
-$ gh repo clone victor-iyi/nvim
+$ gh repo clone victor-iyi/nvim ~/.config/nvim
+
 # Or
-# git clone https://github.com/victor-iyi/nvim
+
+$ git clone https://github.com/victor-iyi/nvim ~/.config/nvim
 ```
 
-Run the [`install`] script.
+## Contribution
 
-[`install`]: ./install
+You are very welcome to modify and use them in your own projects.
 
-```sh
-$ ./install
-# Creates a symlink to `~/.vimrc`.
-```
+Please keep a link to the [original repository]. If you have made a fork with
+substantial modifications that you feel may be useful, then please
+[open a new issue on GitHub][issues] with a link and short description.
+
+## License (Apache 2.0)
+
+This project is opened under the [Apache 2.0] which allows very broad use for
+both private and commercial purposes.
+
+A few of the images used for demonstration purposes may be under copyright.
+These images are included under the "fair useage" laws.
+
+[former `.vimrc`]: https://gist.github.com/victor-iyi/f30b8f8a46a6e3711e4ade16a8179a01
+[Github gist]: https://gist.github.com/victor-iyi/
+[zsh]: https://github.com/ohmyzsh/ohmyzsh
+[original repository]: https://github.com/victor-iyi/nvim
+[issues]: https://github.com/victor-iyi/nvim/issues
