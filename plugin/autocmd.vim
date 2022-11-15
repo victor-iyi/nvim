@@ -32,6 +32,10 @@ autocmd BufRead *trm set filetype=c
 autocmd BufRead *.cc set filetype=cpp
 autocmd BufRead *.xlsx.axlsx set filetype=ruby
 
+" Specific file autodetection.
+au BufNewFile,BufRead ~/.aliases :setl ft=sh
+au BufNewFile,BufRead ~/.functions :setl ft=sh
+
 " Script plugins
 autocmd Filetype html,xml,xsl,php source ~/.config/nvim/scripts/closetag.vim
 
