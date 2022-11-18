@@ -48,7 +48,6 @@ Plug 'junegunn/fzf.vim'
 
 " Semantic language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/mycomment.vim'
 Plug 'sansyrox/vim-python-virtualenv'
 Plug 'luochen1990/rainbow'
 Plug 'github/copilot.vim'
