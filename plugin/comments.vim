@@ -1,4 +1,4 @@
-" File: ~/.vim/plugged/mycomment.vim
+" File: ~/.config/nvim/plugin/comments.vim
 "
 " Comment: (also supports toggle).
 "   Normal mode: <leader>c  OR <leader>cc

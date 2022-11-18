@@ -39,7 +39,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " NERDTree
 Plug 'preservim/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Fuzzy finder
 Plug 'airblade/vim-rooter'
@@ -47,14 +47,20 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Semantic language support
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+if has('nvim')
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
+
 Plug 'sansyrox/vim-python-virtualenv'
 Plug 'luochen1990/rainbow'
 Plug 'github/copilot.vim'
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/lsp_extensions.nvim'
-" Plug 'nvim-lua/completion-nvim'
+if has('nvim')
+  Plug 'nvim-lua/lsp_extensions.nvim'
+  " Plug 'nvim-lua/completion-nvim'
+endif
+
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -63,7 +69,7 @@ Plug 'hrsh7th/nvim-cmp'
 
 if has('nvim')
   Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
-end
+endif
 
 " Syntactic language support
 Plug 'cespare/vim-toml'
@@ -85,14 +91,12 @@ Plug 'git@github.com:kien/ctrlp.vim.git'
 Plug 'mbbill/undotree'
 
 " Telescope
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
-" if has('nvim')
-"   Plug 'nvim-telescope/telescope.nvim'
-"   Plug 'nvim-telescope/telescope-fzy-native.nvim'
-" end
+if has('nvim')
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-fzy-native.nvim'
+endif
 
 call plug#end()
 
