@@ -55,6 +55,11 @@ Plug 'sansyrox/vim-python-virtualenv'
 Plug 'luochen1990/rainbow'
 Plug 'github/copilot.vim'
 
+" Comments
+" Plug 'preservim/nerdcommenter'
+" Plug 'b3nj5m1n/kommentary'
+" Plug 'numToStr/Comment.nvim'
+
 Plug 'neovim/nvim-lspconfig'
 if has('nvim')
   Plug 'nvim-lua/lsp_extensions.nvim'
@@ -111,3 +116,16 @@ call plug#end()
 " and pending changes
 " PlugSnapshot  [!] [output path] - Generate script for restoring current
 " snapshot of the plugins.
+
+
+" =============================================================================
+" Plugin default setup.
+" =============================================================================
+
+" Kommentary: b3nj5m1n/kommentary
+"
+" lua require('kommentary.config').use_extended_mappings()
+
+" Comment: numToStr/Comment.nvim
+"
+" lua require('Comment').setup()

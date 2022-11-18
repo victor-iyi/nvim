@@ -22,6 +22,13 @@ $ gh repo clone victor-iyi/nvim ~/.config/nvim
 $ git clone https://github.com/victor-iyi/nvim ~/.config/nvim
 ```
 
+## TODO
+
+- [ ] Use a good commenter with convinent file association.
+  - [nerdcommenter]
+  - [kommentary]
+  - [vim-commentary]
+
 ## Contribution
 
 You are very welcome to modify and use them in your own projects.
@@ -41,5 +48,8 @@ These images are included under the "fair useage" laws.
 [former `.vimrc`]: https://gist.github.com/victor-iyi/f30b8f8a46a6e3711e4ade16a8179a01
 [Github gist]: https://gist.github.com/victor-iyi/
 [zsh]: https://github.com/ohmyzsh/ohmyzsh
+[nerdcommenter]: https://github.com/preservim/nerdcommenter
+[kommentary]: https://github.com/b3nj5m1n/kommentary
+[vim-commentary]: https://github.com/tpope/vim-commentary
 [original repository]: https://github.com/victor-iyi/nvim
 [issues]: https://github.com/victor-iyi/nvim/issues

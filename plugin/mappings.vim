@@ -326,3 +326,9 @@ noremap <leader>m ct+
 map <F1> <Esc>
 imap <F1> <Esc>
 
+" =============================================================================
+" NERDCommenter: Motion Mappings
+" Documentation: https://github.com/preservim/nerdcommenter#default-mappings
+" =============================================================================
+" nnoremap <silent> <leader>c} V}:call nerdcommenter#Comment('x', 'toggle')<CR>
+" nnoremap <silent> <leader>c{ V{:call nerdcommenter#Comment('x', 'toggle')<CR>

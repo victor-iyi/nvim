@@ -1,11 +1,12 @@
-" File: ~/.config/nvim/plugin/comments.vim
+" File: comments.vim
 "
-" Comment: (also supports toggle).
-"   Normal mode: <leader>c  OR <leader>cc
-"   Visual mode: <leader>c
-"
-" Toggle:
-"   Visual mode: <leader>t
+" Usage:
+"   Comment: (also supports toggle).
+"     Normal mode: <leader>cc
+"     Motion mode: <leader>c{motion}
+"     Visual mode: <leader>c
+"   Toggle:
+"     Visual mode: <leader>t
 
 if get(g:, "comment_loaded", 0) || v:version < 704
   finish
@@ -16,10 +17,10 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 " Mapping
-vnoremap <silent> <leader>c :call <SID>CommentFromSelected('visual')<CR>
-vnoremap <silent> <leader>t :call <SID>ToggleCommentFromSelected()<CR>
-nnoremap <silent> <leader>c :<C-u>set operatorfunc=<SID>CommentFromSelected<CR>g@
-nnoremap <silent> <leader>cc :<C-u>set opfunc=<SID>CommentFromSelected<Bar>exe 'normal! 'v:count1.'g@_'<CR>
+" vnoremap <silent> <leader>c :call <SID>CommentFromSelected('visual')<CR>
+" vnoremap <silent> <leader>t :call <SID>ToggleCommentFromSelected()<CR>
+" nnoremap <silent> <leader>c :<C-u>set operatorfunc=<SID>CommentFromSelected<CR>g@
+" nnoremap <silent> <leader>cc :<C-u>set opfunc=<SID>CommentFromSelected<Bar>exe 'normal! 'v:count1.'g@_'<CR>
 
 let s:xmls = ['html', 'xhtml', 'xml', 'eruby', 'wxml']
 
