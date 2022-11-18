@@ -24,7 +24,7 @@ $ git clone https://github.com/victor-iyi/nvim ~/.config/nvim
 
 ## TODO
 
-- [ ] Use a good commenter with convinent file association.
+- [x] Use a good commenter with convinent file association.
   - [nerdcommenter]
   - [kommentary]
   - [vim-commentary]
