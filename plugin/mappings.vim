@@ -7,7 +7,6 @@
 " for more info on `nnoremap`.
 " Source vim configurations
 map <C-s> :source ~/.config/nvim/init.vim<CR>
-" map <C-s> :source ../init.vim<CR>
 
 " Search result centered please
 nnoremap <silent> n nzz
@@ -21,7 +20,7 @@ nnoremap <silent> g* g*zz
 " zt - top of the window
 " zb - bottom of the window
 
-" Very magic by default
+" Search & replace (very magic by default)
 nnoremap ? ?\v
 nnoremap / /\v
 cnoremap %s/ %sm/ 
@@ -34,7 +33,7 @@ nmap <leader>; :Buffers<CR>
 nmap <leader>w :w<CR>
 
 " ; as :
-nnoremap ; :
+" nnoremap ; :
 
 " Ctrl+j and Ctrl+k as Esc
 " Ctrl-j is a little awkward unfortunately:
@@ -85,19 +84,19 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
 " Window resize
-nnoremap <silent> <Leader>+ :vertical resize +5<CR>
-nnoremap <silent> <Leader>- :vertical resize -5<CR>
-nnoremap <silent> <Leader>vr :vertical resize 30<CR>
+nnoremap <silent> <leader>+ :vertical resize +5<CR>
+nnoremap <silent> <leader>- :vertical resize -5<CR>
+nnoremap <silent> <leader>vr :vertical resize 30<CR>
 
 " Move selected lines up or down.
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-" nnoremap <A-j> :m .+1<CR>==
-" nnoremap <A-k> :m .-2<CR>==
-" inoremap <A-j> <Esc>:m .+1<CR>==gi
-" inoremap <A-k> <Esc>:m .-2<CR>==gi
-" vnoremap <A-j> :m '>+1<CR>gv=gv
-" vnoremap <A-k> :m '<-2<CR>gv=gv
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " Project history tree.
 nnoremap <leader>u :UndotreeShow<CR>
@@ -110,22 +109,23 @@ let g:webdevicons_enable_nerdtree = 1
 
 noremap <leader>s :Rg
 command! -bang -nargs=* Rg
-nnoremap <Leader>pt :NERDTreeToggle<Enter>
-nnoremap <silent> <Leader>pv :NERDTreeFind<CR>
+nnoremap <leader>pt :NERDTreeToggle<CR>
+nnoremap <silent> <leader>pv :NERDTreeFind<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
 
 " TMUX/vim navigator
-noremap <slient> {Left-Mapping} :<C-U>TmuxNavigateLeft<cr>
-noremap <slient> {Down-Mapping} :<C-U>TmuxNavigateDown<cr>
-noremap <slient> {Up-Mapping} :<C-U>TmuxNavigateUp<cr>
-noremap <slient> {Right-Mapping} :<C-U>TmuxNavigateRight<cr>
-noremap <slient> {Previous-Mapping} :<C-U>TmuxNavigatePrevious<cr>
+" noremap <slient> <C-h> :<C-U>TmuxNavigateLeft<cr>
+" noremap <slient> <C-j> :<C-U>TmuxNavigateDown<cr>
+" noremap <slient> <C-k> :<C-U>TmuxNavigateUp<cr>
+" noremap <slient> <C-l> :<C-U>TmuxNavigateRight<cr>
+" noremap <slient> <C-\> :<C-U>TmuxNavigatePrevious<cr>
 
 ""
 " =============================================================================
 " Editor Mappings.
 " =============================================================================
-vmap <Leader>y "+y
+" Yank to clipboard.
+vmap <leader>y "+y
 vmap <Leader>= <C-W><C-=>
 
 " Jump to the start and end of line using the home  row keys
@@ -133,16 +133,18 @@ map H ^
 map L $
 
 " Neat X clipboard integration
-" ,p will paste clipboard into buffer
-" ,c will copy entire buffer into clipboard
+" <leader>p will paste clipboard into buffer
+" <leader>y will copy entire buffer into clipboard
 " noremap <leader>p :read !xsel --clipboard --output<cr>
 " noremap <leader>c :w !xsel -ib<cr><cr>
 if has('macunix')
+  " On Mac.
   noremap <leader>p :read !pbpaste<cr>
-  " noremap <leader>c :w !pbcopy<cr><cr>
+  " noremap <leader>y :w !pbcopy<cr><cr>
 else
+  " Other OS.
   noremap <leader>p :read !xsel --clipboard --output<cr>
-  " noremap <leader>c :w !xsel -ib<cr><cr>
+  " noremap <leader>y :w !xsel -ib<cr><cr>
 endif
 
 " project search (search entire project for ...)
@@ -194,6 +196,10 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-1<CR>gv=gv
 
+" =============================================================================
+" # Conquer of Completion (coc)
+" =============================================================================
+"
 " 'Smart' navigation
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by

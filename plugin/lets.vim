@@ -113,6 +113,7 @@ if executable('rg')
 endif
 
 " TMUX/vim navigator
+let g:tmux_navigator_save_on_switch = 1  " write current buffer (but only if changed)
 let g:tmux_navigator_no_mappings = 1
 
 " JavaScript
