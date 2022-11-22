@@ -39,7 +39,6 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " NERDTree
 Plug 'preservim/nerdtree'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Fuzzy finder
 Plug 'airblade/vim-rooter'
@@ -63,7 +62,6 @@ Plug 'github/copilot.vim'
 Plug 'neovim/nvim-lspconfig'
 if has('nvim')
   Plug 'nvim-lua/lsp_extensions.nvim'
-  " Plug 'nvim-lua/completion-nvim'
 endif
 
 Plug 'hrsh7th/cmp-nvim-lsp'
