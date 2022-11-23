@@ -104,11 +104,6 @@ _G.packer_plugins = {
     path = "/Users/victor/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["coc.nvim"] = {
-    loaded = true,
-    path = "/Users/victor/.local/share/nvim/site/pack/packer/start/coc.nvim",
-    url = "https://github.com/neoclide/coc.nvim"
-  },
   ["copilot.vim"] = {
     loaded = true,
     path = "/Users/victor/.local/share/nvim/site/pack/packer/start/copilot.vim",

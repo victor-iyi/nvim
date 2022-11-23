@@ -87,10 +87,10 @@ return packer.startup(function(use)
   -- use 'p00f/nvim-ts-rainbow'
 
   -- Conquer of completion for neovim.
-  use {
-    'neoclide/coc.nvim',
-    branch = 'release'
-  }
+  -- use {
+  --   'neoclide/coc.nvim',
+  --   branch = 'release'
+  -- }
 
   -- Automatically manages python virtual env.
   use 'sansyrox/vim-python-virtualenv'
