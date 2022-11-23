@@ -30,16 +30,16 @@ if not lspkind_status then
 end
 
 -- load friendly-snippets
-require('luasnip.loaders.from_vscode').lazy_load()
+-- require('luasnip.loaders.from_vscode').lazy_load()
 
 vim.opt.completeopt = 'menu,menuone,noselect'
 
 cmp.setup({
-  -- snippet = {
-  --   expand = function(args)
-  --     luasnip.lsp_expand(args.body)
-  --   end,
-  -- },
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
   mapping = cmp.mapping.preset.insert({
     ['<C-k>'] = cmp.mapping.select_prev_item(),  -- previous suggestion
     ['<C-j>'] = cmp.mapping.select_next_item(),  -- next suggestion
@@ -47,12 +47,12 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),       -- show complete suggestions
     ['<C-e>'] = cmp.mapping.abort(),              -- close completion window
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
   }),
   -- sources for completion.
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },  -- LSP for nvim
-    -- { name = 'luasnip' },   -- Snippets
+    { name = 'luasnip', option = { use_show_condition = false } },   -- Snippets
     { name = 'buffer' },    -- text within current buffer
     { name = 'path' },      -- file system paths
   }),

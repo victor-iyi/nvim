@@ -51,7 +51,7 @@ return packer.startup(function(use)
   -- Editor/GUI enhancements.
   -- ==================================================
   -- Colorschemes
-  use 'ayu-theme/ayu-vim'
+  -- use 'ayu-theme/ayu-vim'
   use 'bluz71/vim-nightfly-guicolors'
 
   -- Add file type icons to the file tree.
@@ -83,14 +83,9 @@ return packer.startup(function(use)
     end,
   }
 
-  -- Rainbow parentheses using treesitter..
-  -- use 'p00f/nvim-ts-rainbow'
-
-  -- Conquer of completion for neovim.
-  -- use {
-  --   'neoclide/coc.nvim',
-  --   branch = 'release'
-  -- }
+  -- autoclose parens, brackets, quotes, etc.
+  use 'windwp/nvim-autopairs'
+  use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' }
 
   -- Automatically manages python virtual env.
   use 'sansyrox/vim-python-virtualenv'
@@ -122,12 +117,12 @@ return packer.startup(function(use)
   -- Make the yanked region apparent.
   use 'machakann/vim-highlightedyank'
 
-  -- Changes working directory to project root.
-  use 'airblade/vim-rooter'
-
   -- Better % - highlight and navigate matching pattern.
   use'andymass/vim-matchup'
 
+  -- ==================================================
+  -- Files and folders
+  -- ==================================================
   -- file explorer
   use {
     'nvim-tree/nvim-tree.lua',
@@ -136,7 +131,7 @@ return packer.startup(function(use)
     }
   }
 
-  -- fuzzy finding
+  -- Fuzzy finding
   use {
     'nvim-telescope/telescope-fzf-native.nvim',
     run = 'make',
@@ -145,6 +140,18 @@ return packer.startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} },
   }
+
+  -- Changes working directory to project root.
+  use 'airblade/vim-rooter'
+
+  -- git integration
+  use 'lewis6991/gitsigns.nvim'  -- show line modification on left hand side.
+
+  -- ==================================================
+  -- Language server protocol
+  -- ==================================================
+  -- Conquer of completion for neovim.
+  use { 'neoclide/coc.nvim', branch = 'release' }
 
   -- Autocompletion.
   -- Managing & configurations for Nvim LSP.
@@ -164,30 +171,21 @@ return packer.startup(function(use)
   }
 
   -- Snippets.
-  -- use 'L3MON4D3/LuaSnip'
-  -- use 'saadparwaiz1/cmp_luasnip'
-  -- use 'rafamadriz/friendly-snippets'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets'
 
-  -- configuring lsp servers
+  -- Configuring lsp servers
   use { 'glepnir/lspsaga.nvim', branch = 'main'}
   use 'onsails/lspkind.nvim'
 
   -- formatting and linting
-  use 'jose-elias-alvarez/null-ls.nvim'   -- configure formatters and linters
-  use 'jayp0521/mason-null-ls.nvim' -- bridges gap b/w mason & null-ls
+  -- use 'jose-elias-alvarez/null-ls.nvim'   -- configure formatters and linters
+  -- use 'jayp0521/mason-null-ls.nvim' -- bridges gap b/w mason & null-ls
 
   -- Improve Rust experience.
   -- use 'simrat39/rust-tools.nvim'
 
-  -- autoclose parens, brackets, quotes, etc.
-  use 'windwp/nvim-autopairs'
-  use {
-    'windwp/nvim-ts-autotag',
-    after = 'nvim-treesitter',
-  }
-
-  -- git integration
-  use 'lewis6991/gitsigns.nvim'  -- show line modification on left hand side.
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

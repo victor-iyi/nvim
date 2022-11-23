@@ -85,6 +85,7 @@ opt.listchars = 'nbsp:¬,extends:»,precedes:«,trail:•'
 -- swap files.
 opt.swapfile = false
 opt.backup = false
+opt.writebackup = false
 opt.undodir = os.getenv('HOME') .. '/.cache/nvim/undo'
 opt.undofile = true
 

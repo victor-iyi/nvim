@@ -31,5 +31,7 @@ require('victor-iyi.plugins.treesitter')
 
 -- Language server.
 -- require('victor-iyi.plugins.lsp.coc')
-require('victor-iyi.plugins.lsp.mason')
 require('victor-iyi.plugins.lsp.lspconfig')
+require('victor-iyi.plugins.lsp.lspsaga')
+require('victor-iyi.plugins.lsp.mason')
+-- require('vicotr-iyi.plugins.lsp.null-ls')
