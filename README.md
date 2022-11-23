@@ -3,31 +3,35 @@
 My wacky `nvim` configuration. I have a [former `.vimrc`] configuration on my
 [Github gist]
 
+## Versions
+
+I maintain [two versions] of this configuration. One version is configured with
+older vim script, while the other is configured in the modern Lua (only works
+with modern versions of Neovim).
+
+- Lua Script - [main]
+- Vim Script - [vim-config]
+
 ## Requirements
 
 - Terminal + [zsh] (iTerm recommended)
 - `nvim` v0.8+
 - `pynvim` & `neovim` - `pip install pynvim neovim`
-- `lua` & `luarocks` for telescope. - `brew install lua luarocks`
+- `lua` & `luarocks` - `brew install lua luarocks`
 
 ## Usage
 
 Clone repo into `~/.config/nvim/` directory.
 
 ```sh
-$ gh repo clone victor-iyi/nvim ~/.config/nvim
-
-# Or
-
-$ git clone https://github.com/victor-iyi/nvim ~/.config/nvim
+git clone https://github.com/victor-iyi/nvim ~/.config/nvim
 ```
 
-## TODO
+...or install use the [GitHub CLI][gh] to clone it, if you have that setup.
 
-- [x] Use a good commenter with convinent file association.
-  - [nerdcommenter]
-  - [kommentary]
-  - [vim-commentary]
+```sh
+gh repo clone victor-iyi/nvim ~/.config/nvim
+```
 
 ## Contribution
 
@@ -45,11 +49,12 @@ both private and commercial purposes.
 A few of the images used for demonstration purposes may be under copyright.
 These images are included under the "fair useage" laws.
 
+[two versions]: https://github.com/victor-iyi/nvim/branches
+[main]: https://github.com/victor-iyi/nvim
+[vim-config]: https://github.com/victor-iyi/nvim/tree/vim-config
+[gh]: https://docs.github.com/en/github-cli
 [former `.vimrc`]: https://gist.github.com/victor-iyi/f30b8f8a46a6e3711e4ade16a8179a01
 [Github gist]: https://gist.github.com/victor-iyi/
 [zsh]: https://github.com/ohmyzsh/ohmyzsh
-[nerdcommenter]: https://github.com/preservim/nerdcommenter
-[kommentary]: https://github.com/b3nj5m1n/kommentary
-[vim-commentary]: https://github.com/tpope/vim-commentary
 [original repository]: https://github.com/victor-iyi/nvim
 [issues]: https://github.com/victor-iyi/nvim/issues
