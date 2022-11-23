@@ -22,7 +22,17 @@ end
 
 treesitter.setup {
   -- A list of parser names, or "all"
-  -- ensure_installed = { "c", "lua", "rust" },
+  ensure_installed = {
+    'bash',
+    'dockerfile',
+    'gitignore',
+    'json',
+    'lua',
+    'markdown',
+    'rust',
+    'yaml',
+    'vim',
+  },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   -- sync_install = false,
@@ -30,6 +40,12 @@ treesitter.setup {
   -- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = true,
+
+  -- enable indentation
+  indent = { enable = true },
+
+  -- enable auto tagging (w/ nvim-ts-autotag plugin)
+  autotag = { enable = true },
 
   -- List of parsers to ignore installing (for "all")
   -- ignore_install = { "javascript" },
@@ -59,7 +75,7 @@ treesitter.setup {
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
+    -- additional_vim_regex_highlighting = false,
   },
 
   -- ...
@@ -70,5 +86,5 @@ treesitter.setup {
     max_file_lines = nil, -- Do not enable for files with more than n lines, int
     -- colors = {}, -- table of hex strings
     -- termcolors = {} -- table of colour name strings
-  }
+  },
 }

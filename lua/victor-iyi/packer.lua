@@ -73,7 +73,15 @@ return packer.startup(function(use)
   -- Semantic language support
   -- ==================================================
   -- Incremental parsing system for programming tools.
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({
+        with_sync = true
+      })
+      ts_update()
+    end,
+  }
 
   -- Rainbow parentheses using treesitter..
   -- use 'p00f/nvim-ts-rainbow'
@@ -155,17 +163,31 @@ return packer.startup(function(use)
     'hrsh7th/nvim-cmp',
   }
 
+  -- Snippets.
+  -- use 'L3MON4D3/LuaSnip'
+  -- use 'saadparwaiz1/cmp_luasnip'
+  -- use 'rafamadriz/friendly-snippets'
+
   -- configuring lsp servers
   use { 'glepnir/lspsaga.nvim', branch = 'main'}
   use 'onsails/lspkind.nvim'
 
+  -- formatting and linting
+  use 'jose-elias-alvarez/null-ls.nvim'   -- configure formatters and linters
+  use 'jayp0521/mason-null-ls.nvim' -- bridges gap b/w mason & null-ls
+
   -- Improve Rust experience.
   -- use 'simrat39/rust-tools.nvim'
 
-  -- Snippets.
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'rafamadriz/friendly-snippets'
+  -- autoclose parens, brackets, quotes, etc.
+  use 'windwp/nvim-autopairs'
+  use {
+    'windwp/nvim-ts-autotag',
+    after = 'nvim-treesitter',
+  }
+
+  -- git integration
+  use 'lewis6991/gitsigns.nvim'  -- show line modification on left hand side.
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
