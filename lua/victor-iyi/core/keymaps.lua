@@ -34,6 +34,10 @@ keymap.set('i', '<down>', '<nop>')
 keymap.set('i', '<left>', '<nop>')
 keymap.set('i', '<right>', '<nop>')
 
+-- Disable <F1> key
+keymap.set('', '<F1>', '<nop>')
+keymap.set('i', '<F1>', '<nop>')
+
 -- Copy to clipboard
 keymap.set('v', '<leader>y', '"+y')         -- Copy selected text to clipboard.
 keymap.set('n', '<leader>p', '"+p')         -- Paste from clipboard.
@@ -85,12 +89,12 @@ keymap.set('n', '<leader>tn', ':tabnext<CR>')       -- Next tab.
 keymap.set('n', '<leader>tp', ':tabprevious<CR>')   -- Previous tab.
 
 -- Move line up or down.
-keymap.set('n', '<A-j>', ':m .+1<CR>==')
-keymap.set('n', '<A-k>', ':m .-2<CR>==')
-keymap.set('i', '<A-j>', '<ESC>:m .+1<CR>==gi')
-keymap.set('i', '<A-k>', '<ESC>:m .-2<CR>==gi')
-keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv")
-keymap.set('v', '<A-k>', ":m '<-1<CR>gv=gv")
+-- keymap.set('n', '<A-j>', ':m .+1<CR>==')
+-- keymap.set('n', '<A-k>', ':m .-2<CR>==')
+-- keymap.set('i', 'J', '<ESC>:m .+1<CR>==gi')
+-- keymap.set('i', 'K', '<ESC>:m .-2<CR>==gi')
+keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- Plugin keymaps
 

@@ -138,6 +138,35 @@ return packer.startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} },
   }
 
+  -- Autocompletion.
+  -- Managing & configurations for Nvim LSP.
+  use {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
+  }
+
+  -- Auto completion.
+  use {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/nvim-cmp',
+  }
+
+  -- configuring lsp servers
+  use { 'glepnir/lspsaga.nvim', branch = 'main'}
+  use 'onsails/lspkind.nvim'
+
+  -- Improve Rust experience.
+  -- use 'simrat39/rust-tools.nvim'
+
+  -- Snippets.
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
