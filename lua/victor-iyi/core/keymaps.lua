@@ -12,6 +12,7 @@
 -- See the License for the specific language governing permissions and
 -- limitations under the License.
 
+-- leader key.
 vim.g.mapleader = ' '
 
 local keymap = vim.keymap  -- Alias for vim.api.nvim_set_keymap
@@ -81,6 +82,11 @@ keymap.set('n', '<leader>sv', '<C-w>v')       -- Vertical split.
 keymap.set('n', '<leader>sh', '<C-w>s')       -- Horizontal split.
 keymap.set('n', '<leader>se', '<C-w>=')       -- Make split windows equal width..
 keymap.set('n', '<leader>sx', ':close<CR>')   -- Close current split.
+
+-- Window resize.
+keymap.set('n', '<leader>v+', ':vertical resize +5<CR>', {silent = true})
+keymap.set('n', '<leader>v-', ':vertical resize -5<CR>', {silent = true})
+keymap.set('n', '<leader>vr', ':vertical resize 30<CR>', {silent = true})
 
 -- Managing tabs.
 keymap.set('n', '<leader>to', ':tabnew<CR>')        -- Open new tab.
