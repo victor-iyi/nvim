@@ -82,10 +82,14 @@ return packer.startup(function(use)
       ts_update()
     end,
   }
+  use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' }
+  use {
+    'p00f/nvim-ts-rainbow',
+    requires = { 'nvim-treesitter/nvim-treesitter' }
+  }
 
   -- autoclose parens, brackets, quotes, etc.
   use 'windwp/nvim-autopairs'
-  use { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' }
 
   -- Automatically manages python virtual env.
   use 'sansyrox/vim-python-virtualenv'

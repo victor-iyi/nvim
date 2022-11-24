@@ -14,9 +14,8 @@
 
 -- URL:
 -- nvim-treesitter: https://github.com/nvim-treesitter/nvim-treesitter
--- nvim-ts-rainbow: https://github.com/p00f/nvim-ts-rainbow
 local status, treesitter = pcall(require, 'nvim-treesitter.configs')
-if not setup then
+if not status then
   return
 end
 
