@@ -15,9 +15,11 @@ with modern versions of Neovim).
 ## Requirements
 
 - Terminal + [zsh] (iTerm recommended)
-- `nvim` v0.8+
-- `pynvim` & `neovim` - `pip install pynvim neovim`
+- `nvim` v0.8+ - `brew install neovim`
 - `lua` & `luarocks` - `brew install lua luarocks`
+- `npm` v8.15  - `brew install node`
+- `tree-sitter` v0.20+ - `npm i -g tree-sitter`
+- `pynvim` & `neovim` - `pip install pynvim neovim` (optional)
 
 ## Usage
 
