@@ -15,9 +15,11 @@ with modern versions of Neovim).
 ## Requirements
 
 - Terminal + [zsh] (iTerm recommended)
-- `nvim` v0.8+
-- `pynvim` & `neovim` - `pip install pynvim neovim`
+- `nvim` v0.8+ - `brew install neovim`
 - `lua` & `luarocks` - `brew install lua luarocks`
+- `npm` v8.15  - `brew install node`
+- `tree-sitter` v0.20+ - `npm i -g tree-sitter`
+- `pynvim` & `neovim` - `pip install pynvim neovim` (optional)
 
 ## Usage
 
@@ -58,3 +60,4 @@ These images are included under the "fair useage" laws.
 [zsh]: https://github.com/ohmyzsh/ohmyzsh
 [original repository]: https://github.com/victor-iyi/nvim
 [issues]: https://github.com/victor-iyi/nvim/issues
+[Apache 2.0]: ./LICENSE
