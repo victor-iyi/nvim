@@ -145,6 +145,9 @@ return packer.startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} },
   }
 
+  -- File assocoiation
+  use 'nathom/filetype.nvim'
+
   -- Changes working directory to project root.
   use 'airblade/vim-rooter'
 
