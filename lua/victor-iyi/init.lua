@@ -23,6 +23,7 @@ require('victor-iyi.core.colorscheme')
 -- Plugins
 require('victor-iyi.plugins.comment')
 require('victor-iyi.plugins.devicons')
+require('victor-iyi.plugins.filetype')
 require('victor-iyi.plugins.lualine')
 require('victor-iyi.plugins.nvim-cmp')
 require('victor-iyi.plugins.nvim-tree')
