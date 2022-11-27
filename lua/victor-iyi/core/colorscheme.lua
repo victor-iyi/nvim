@@ -18,3 +18,6 @@ if not status then
   print('Error: colorscheme not found')
   return
 end
+
+-- Use terminal background.
+vim.cmd('hi Normal ctermbg=none guibg=none')
