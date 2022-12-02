@@ -124,6 +124,7 @@ lspconfig['sumneko_lua'].setup({
 -- configure pyright
 lspconfig['pyright'].setup({
   capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 -- typescript.setup({
