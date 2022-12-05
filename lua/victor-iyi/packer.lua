@@ -170,11 +170,15 @@ return packer.startup(function(use)
 
   -- Auto completion.
   use {
+    -- nvim-cmp sources.
+    'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
-    'hrsh7th/nvim-cmp',
+    -- 'hrsh7th/cmp-copilot',
+    'petertriho/cmp-git',
+    'Saecki/crates.nvim',
   }
 
   -- Snippets.
