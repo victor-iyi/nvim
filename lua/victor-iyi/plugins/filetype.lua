@@ -34,6 +34,7 @@ filetype.setup({
     complex = {
       ['[\\.]?aliases'] = 'sh',
       ['[\\.]?functions'] = 'sh',
+      ['[\\.]?tmux.conf'] = 'tmux',
     },
 
     -- The same as the ones above except the keys map to functions.
