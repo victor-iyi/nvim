@@ -12,100 +12,121 @@
 -- See the License for the specific language governing permissions and
 -- limitations under the License.
 
+-- Language server.
 local lspconfig_status, lspconfig = pcall(require, 'lspconfig')
 if not lspconfig_status then
   return
 end
 
+-- Completion.
 local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 if not cmp_nvim_lsp_status then
+  return
+end
+
+-- Type/parameter hints.
+local ih_status, ih = pcall(require, 'inlay-hints')
+if not ih_status then
   return
 end
 
 -- vim keymap
 local keymap = vim.keymap
 
-
 local on_attach = function(client, buffr)
+  -- inlay hints.
+  ih.on_attach(client, buffr)
+
   local opts = { noremap = true, silent = true, buffer = buffr }
 
   -- set keybinds
 
-  -- Lsp finder find the symbol definition implement reference
+  -- lsp finder find the symbol definition implement reference
   -- if there is no implement it will hide
   -- when you use action in finder like open vsplit then you can
-  -- use <C-t> to jump back
-  keymap.set('n', 'gf', '<cmd>Lspsaga lsp_finder<CR>', opts)
+  -- use <c-t> to jump back
+  keymap.set('n', 'gf', '<cmd>lspsaga lsp_finder<cr>', opts)
 
-  -- Code action
-  keymap.set({'n', 'v'}, '<leader>ca', '<cmd>Lspsaga code_action<CR>', opts)
+  -- code action
+  keymap.set({'n', 'v'}, '<leader>ca', '<cmd>lspsaga code_action<cr>', opts)
 
-  -- Rename
-  keymap.set('n', '<leader>rn', '<cmd>Lspsaga rename<CR>', opts)  -- smart rename
+  -- rename
+  keymap.set('n', '<leader>rn', '<cmd>lspsaga rename<cr>', opts)  -- smart rename
 
-  -- Peek definition.
-  -- You can edit the definition file in this floatwindow
+  -- peek definition.
+  -- you can edit the definition file in this floatwindow
   -- also support open/vsplit/etc operation check definition_action_keys
-  -- support tagstack C-t jump back.
-  keymap.set('n', 'gd', '<cmd>Lspsaga peek_definition<CR>', opts)
+  -- support tagstack c-t jump back.
+  keymap.set('n', 'gd', '<cmd>lspsaga peek_definition<cr>', opts)
 
-  -- Go to declaration
-  keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  -- go to declaration
+  keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
 
-  -- Go to implementation
-  keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)  -- go to implementation
+  -- go to implementation
+  keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)  -- go to implementation
 
-  -- Show line diagnostics.
-  keymap.set('n', '<leader>dl', '<cmd>Lspsaga show_line_diagnositics<CR>', opts)
+  -- show line diagnostics.
+  keymap.set('n', '<leader>dl', '<cmd>lspsaga show_line_diagnositics<cr>', opts)
 
-  -- Show cursor diagnostic
-  keymap.set('n', '<leader>dc', '<cmd>Lspsaga show_cursor_diagnostics<CR>', opts)
+  -- show cursor diagnostic
+  keymap.set('n', '<leader>dc', '<cmd>lspsaga show_cursor_diagnostics<cr>', opts)
 
-  -- Diagnostic jump can use `<C-o>` to jump back.
-  keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)  -- jump to previous diagnostic in buffer
-  keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)  -- jump to next diagnostic in buffer
+  -- diagnostic jump can use `<c-o>` to jump back.
+  keymap.set('n', '[d', '<cmd>lspsaga diagnostic_jump_prev<cr>', opts)  -- jump to previous diagnostic in buffer
+  keymap.set('n', ']d', '<cmd>lspsaga diagnostic_jump_next<cr>', opts)  -- jump to next diagnostic in buffer
 
-  -- Only jump to error.
+  -- only jump to error.
   keymap.set(
-    'n', '[E', function()
-      require('lspsaga.diagnostic').goto_prev({ serverity = vim.diagnostic.severity.ERROR })
+    'n', '[e', function()
+      require('lspsaga.diagnostic').goto_prev({ serverity = vim.diagnostic.severity.error })
     end, opts)
   keymap.set(
-    'n', ']E', function()
-      require('lspsaga.diagnostic').goto_next({ serverity = vim.diagnostic.severity.ERROR })
+    'n', ']e', function()
+      require('lspsaga.diagnostic').goto_next({ serverity = vim.diagnostic.severity.error })
     end, opts)
 
-  -- Outline: see outline at the right hand side.
-  keymap.set('n', '<leader>o', '<cmd>LSoutlineToggle<CR>', opts)
+  -- outline: see outline at the right hand side.
+  keymap.set('n', '<leader>o', '<cmd>lsoutlinetoggle<cr>', opts)
 
-  -- Hover doc: show documentation.
-  keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
+  -- hover doc: show documentation.
+  keymap.set('n', 'k', '<cmd>lspsaga hover_doc<cr>', opts)
 
-  -- Float terminal
-  keymap.set('n', '<A-d>', '<cmd>Lspsaga open_floaterm<CR>', opts)
+  -- float terminal
+  keymap.set('n', '<a-d>', '<cmd>lspsaga open_floaterm<cr>', opts)
   -- if you wan tpass some cli command into terminal you can do like this
   -- open lazygit in lspsaga float terminal
-  keymap.set('n', '<A-d>', '<cmd>Lspsaga open_floaterm lazygit<CR>', opts)
+  keymap.set('n', '<a-d>', '<cmd>lspsaga open_floaterm lazygit<cr>', opts)
   -- close floaterm
-  keymap.set('t', '<A-d>', [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], opts)
+  keymap.set('t', '<a-d>', [[<c-\><c-n><cmd>lspsaga close_floaterm<cr>]], opts)
 
 end
-
 
 -- used to enable autocompletion.
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
-lspconfig['rust_analyzer'].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
+-- Language servers to enable.
+local servers = {
+  'rust_analyzer',  -- Rust
+  'sumneko_lua',    -- Lua
+  'pyright',        -- Python
+}
+
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+  })
+end
 
 -- configure lua server (with special settings)
 lspconfig['sumneko_lua'].setup({
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {  -- custom settings for lua
-    Lua = {
+    lua = {
+      hint = {
+        enable = true,
+      },
       -- make the language server recognize "vim" global
       diagnostics = {
         globals = { 'vim' },
@@ -113,7 +134,7 @@ lspconfig['sumneko_lua'].setup({
       workspace = {
         -- make language server aware of runtime files
         library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.expand('$vimruntime/lua')] = true,
           [vim.fn.stdpath('config') .. '/lua'] = true,
         },
       },
@@ -121,15 +142,3 @@ lspconfig['sumneko_lua'].setup({
   },
 })
 
--- configure pyright
-lspconfig['pyright'].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
-
--- typescript.setup({
---   server = {
---     capabilities = capabilities,
---     on_attach = on_attach,
---   }
--- })

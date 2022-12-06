@@ -190,6 +190,10 @@ return packer.startup(function(use)
   use { 'glepnir/lspsaga.nvim', branch = 'main'}
   use 'onsails/lspkind.nvim'
 
+  -- Type hints.
+  use 'simrat39/inlay-hints.nvim'
+  use 'simrat39/rust-tools.nvim'
+
   -- formatting and linting
   -- use 'jose-elias-alvarez/null-ls.nvim'   -- configure formatters and linters
   -- use 'jayp0521/mason-null-ls.nvim' -- bridges gap b/w mason & null-ls

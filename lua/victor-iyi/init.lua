@@ -26,14 +26,16 @@ require('victor-iyi.plugins.devicons')
 require('victor-iyi.plugins.filetype')
 require('victor-iyi.plugins.gitsigns')
 require('victor-iyi.plugins.lualine')
-require('victor-iyi.plugins.nvim-cmp')
 require('victor-iyi.plugins.nvim-tree')
 require('victor-iyi.plugins.telescope')
 require('victor-iyi.plugins.treesitter')
 
 -- Language server.
 -- require('victor-iyi.plugins.lsp.coc')  -- BUG: keymaps and lsp
+require('victor-iyi.plugins.lsp.hints')
 require('victor-iyi.plugins.lsp.lspconfig')
 require('victor-iyi.plugins.lsp.lspsaga')
 require('victor-iyi.plugins.lsp.mason')
 -- require('vicotr-iyi.plugins.lsp.null-ls')
+require('victor-iyi.plugins.lsp.nvim-cmp')
+require('victor-iyi.plugins.lsp.rust-tools')
