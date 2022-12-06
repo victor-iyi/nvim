@@ -56,7 +56,7 @@ cmp.setup({
     { name = 'nvim_lsp' },  -- LSP for nvim
     { name = 'path' },      -- file system paths
     { name = 'git' },       -- git commits, github issues, merge/pull requests, metions, etc.
-    { name = 'cmdline' },   -- command line suggestions
+    -- { name = 'cmdline' },   -- command line suggestions
     { name = 'crates' },    -- crates.io dependencies
   }),
   -- configure lspkind for vscode like icons_enabled
