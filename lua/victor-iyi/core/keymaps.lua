@@ -20,6 +20,8 @@ local keymap = vim.keymap  -- Alias for vim.api.nvim_set_keymap
 -- General keymaps.
 keymap.set('i', '<C-j>', '<ESC>')       -- Escape from insert mode.
 keymap.set('i', '<C-k>', '<ESC>')       -- Escape from insert mode.
+keymap.set('v', '<C-j>', '<ESC>')       -- Escape from visual mode.
+keymap.set('v', '<C-k>', '<ESC>')       -- Escape from visual mode.
 keymap.set('n', '<leader>w', ':w<CR>')  -- Save file.
 
 keymap.set('', 'H', '^')    -- Move cursor to begining of line.
@@ -57,10 +59,15 @@ keymap.set('n', '*', '*zz', {silent = true})
 keymap.set('n', '#', '#zz', {silent = true})
 keymap.set('n', 'g*', 'g*zz', {silent = true})
 
+-- Center while navigating half-page.
+keymap.set('n', '<C-d>', '<C-d>zz', {silent=true})
+keymap.set('n', '<C-u>', '<C-u>zz', {silent=true})
+
 -- Center your cursor
 -- zz = center of the window
 -- zt = top of the window
 -- zb = bottom of the window
+
 
 -- Search & replace (very magic by default)
 -- keymap.set('n', '?', '?\v')
@@ -85,7 +92,7 @@ keymap.set('n', '<leader>sx', ':close<CR>')   -- Close current split.
 
 -- Window resize.
 keymap.set('n', '<leader>v+', ':vertical resize +5<CR>', {silent = true})
-keymap.set('n', '<leader>v-', ':vertical resize -5<CR>', {silent = true})
+keymap.set('n', '<leader>v-', ':vertical resize -6<CR>', {silent = true})
 keymap.set('n', '<leader>vr', ':vertical resize 30<CR>', {silent = true})
 
 -- Managing tabs.
@@ -112,3 +119,6 @@ keymap.set('n', '<leader>u', ':UndotreeToggle<CR>')
 
 -- nvim-tree
 keymap.set('n', '<leader>pt', ':NvimTreeToggle<CR>')
+
+-- NERDTree
+-- keymap.set('n', '<leader>pt', ':NERDTreeToggle<CR>')

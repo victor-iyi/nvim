@@ -39,7 +39,15 @@ tree.setup({
     adaptive_size = true,
     mappings = {
       list = {
-        { key = "u", action = "dir_up" },
+        { key = 'u', action = 'dir_up' },
+        { key = 's', action = 'vsplit' },
+        { key = 'i', action = 'split' },
+        { key = '?', action = 'toggle_help' },
+        { key = 'go', action = 'preview' },
+        { key = 'cd', action = 'cd' },
+        { key = '<C-j>', action = 'next_sibling' },
+        { key = '<C-k>', action = 'prev_sibling' },
+        { key = 'X', action = 'collapse_all' },
       },
     },
   },
