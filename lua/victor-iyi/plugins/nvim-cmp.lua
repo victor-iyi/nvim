@@ -51,7 +51,7 @@ cmp.setup({
   }),
   -- sources for completion.
   sources = cmp.config.sources({
-    { name = 'luasnip', option = { use_show_condition = false } },   -- Snippets
+    -- { name = 'luasnip', option = { use_show_condition = false } },   -- Snippets
     { name = 'buffer' },    -- text within current buffer
     { name = 'nvim_lsp' },  -- LSP for nvim
     { name = 'path' },      -- file system paths
