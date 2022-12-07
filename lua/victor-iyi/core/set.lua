@@ -15,6 +15,9 @@
 -- vim configuration options.
 local opt = vim.opt
 
+-- vim global configuration options.
+local g = vim.g
+
 -- Use language-specific plugins for indenting.
 vim.cmd('filetype plugin indent on')
 
@@ -22,20 +25,19 @@ vim.cmd('filetype plugin indent on')
 opt.guicursor = 'n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor'
 opt.termguicolors = true
 opt.background = 'dark'
-opt.colorcolumn = '80'      -- Show line length marker at 80 columns.
-opt.showcmd = true          -- Show (partial) command in status line.
-opt.mouse = 'a'             -- Enable (all modes) mouse support.
-
+opt.colorcolumn = '80' -- Show line length marker at 80 columns.
+opt.showcmd = true -- Show (partial) command in status line.
+opt.mouse = 'a' -- Enable (all modes) mouse support.
 
 -- line numbers.
 opt.relativenumber = true
 opt.number = true
 
-opt.backspace = 'indent,eol,start'  -- Backspace over everything in insert mode.
-opt.foldenable = false              -- Disable folding.
-opt.ttyfast = true                  -- Faster terminal output.
-opt.lazyredraw = true               -- Don't redraw while executing macros (good performance config).
-opt.laststatus = 2                  -- Always show the status line.
+opt.backspace = 'indent,eol,start' -- Backspace over everything in insert mode.
+opt.foldenable = false -- Disable folding.
+opt.ttyfast = true -- Faster terminal output.
+opt.lazyredraw = true -- Don't redraw while executing macros (good performance config).
+opt.laststatus = 2 -- Always show the status line.
 
 opt.errorbells = false
 
@@ -79,7 +81,8 @@ opt.splitbelow = true
 
 -- Decent wildmenu
 opt.wildmode = 'list:longest'
-opt.wildignore = '.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,.DS_Store,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor'
+opt.wildignore =
+  '.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,.DS_Store,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor'
 
 -- Show those damn hidden characters
 -- Verbose: opt.listchars = 'nbsp:¬,eol:¶,extends:»,precedes:«,trail:•'
@@ -112,14 +115,21 @@ opt.iskeyword:append('-')
 opt.shortmess:append('c')
 
 -- Wrapping options.
-opt.formatoptions:append('tc')  -- Wrap text and comments using textwidth
-opt.formatoptions:append('r')   -- Continue comments when pressing ENTER in I mode
-opt.formatoptions:append('q')   -- Allow formatting comments w/ gq
-opt.formatoptions:append('n')   -- Detect list for formatting
-opt.formatoptions:append('b')   -- Auto-wrap insert mode, and do not wrap old long lines
-
+opt.formatoptions:append('tc') -- Wrap text and comments using textwidth
+opt.formatoptions:append('r') -- Continue comments when pressing ENTER in I mode
+opt.formatoptions:append('q') -- Allow formatting comments w/ gq
+opt.formatoptions:append('n') -- Detect list for formatting
+opt.formatoptions:append('b') -- Auto-wrap insert mode, and do not wrap old long lines
 
 -- Plugins
 
 -- NERDTree
-vim.g.webdevicons_enable_nerdtree = 1
+g.webdevicons_enable_nerdtree = 1
+
+-- Rust
+-- g.rustfmt_autosave = 1
+if vim.loop.os_uname().sysname == 'Darwin' then
+  g.rust_clip_command = 'pbcopy'
+else
+  g.rust_clip_command = 'xclip -selection clipboard'
+end
