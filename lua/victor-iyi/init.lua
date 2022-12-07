@@ -32,10 +32,10 @@ require('victor-iyi.plugins.treesitter')
 
 -- Language server.
 -- require('victor-iyi.plugins.lsp.coc')  -- BUG: keymaps and lsp
-require('victor-iyi.plugins.lsp.hints')
+-- require('victor-iyi.plugins.lsp.hints')  -- UNUSED: inlay hints.
 require('victor-iyi.plugins.lsp.lspconfig')
 require('victor-iyi.plugins.lsp.lspsaga')
 require('victor-iyi.plugins.lsp.mason')
--- require('vicotr-iyi.plugins.lsp.null-ls')
+-- require('vicotr-iyi.plugins.lsp.null-ls') -- BUG: not working properly
 require('victor-iyi.plugins.lsp.nvim-cmp')
-require('victor-iyi.plugins.lsp.rust-tools')
+-- require('victor-iyi.plugins.lsp.rust-tools')  -- UNUSED: inlay hints (for Rust)

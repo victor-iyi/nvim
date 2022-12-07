@@ -25,17 +25,17 @@ if not cmp_nvim_lsp_status then
 end
 
 -- Type/parameter hints.
-local ih_status, ih = pcall(require, 'inlay-hints')
-if not ih_status then
-  return
-end
+-- local ih_status, ih = pcall(require, 'inlay-hints')
+-- if not ih_status then
+--   return
+-- end
 
 -- vim keymap
 local keymap = vim.keymap
 
 local on_attach = function(client, buffr)
   -- inlay hints.
-  ih.on_attach(client, buffr)
+  -- ih.on_attach(client, buffr)
 
   local opts = { noremap = true, silent = true, buffer = buffr }
 
@@ -89,7 +89,7 @@ local on_attach = function(client, buffr)
   keymap.set('n', '<leader>o', '<cmd>lsoutlinetoggle<cr>', opts)
 
   -- hover doc: show documentation.
-  keymap.set('n', 'k', '<cmd>lspsaga hover_doc<cr>', opts)
+  keymap.set('n', '<C-k>', '<cmd>lspsaga hover_doc<cr>', opts)
 
   -- float terminal
   keymap.set('n', '<a-d>', '<cmd>lspsaga open_floaterm<cr>', opts)
