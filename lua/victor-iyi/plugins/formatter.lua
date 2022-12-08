@@ -80,9 +80,10 @@ local api = vim.api
 
 local fmt_group = api.nvim_create_augroup('FormatAutogroup', { clear = true })
 api.nvim_create_autocmd('BufWritePost', {
+  group = fmt_group,
   pattern = '*',
   command = 'FormatWrite',
-  group = fmt_group,
+  desc = 'Format after save',
 })
 
 -- vim.cmd [[
