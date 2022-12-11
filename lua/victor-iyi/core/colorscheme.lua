@@ -13,11 +13,15 @@
 -- limitations under the License.
 
 -- Setup colorscheme.
-local status, _ = pcall(vim.cmd, 'colorscheme nightfly')
+local colorscheme = 'nightfly'
+local cmd = vim.cmd
+
+local status, _ = pcall(cmd, 'colorscheme nightfly')
+
 if not status then
-  print('Error: colorscheme not found')
+  vim.notify('colorscheme ' .. colorscheme .. ' not found')
   return
 end
 
 -- Use terminal background.
-vim.cmd('hi Normal ctermbg=none guibg=none')
+cmd('hi Normal ctermbg=none guibg=none')
