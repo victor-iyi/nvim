@@ -29,6 +29,7 @@ require('victor-iyi.plugins.gitsigns')
 require('victor-iyi.plugins.lualine')
 require('victor-iyi.plugins.nvim-tree')
 require('victor-iyi.plugins.telescope')
+require('victor-iyi.plugins.toggleterm')
 require('victor-iyi.plugins.treesitter')
 
 -- Language server.

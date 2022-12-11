@@ -56,6 +56,8 @@ return packer.startup(function(use)
   -- Add file type icons to the file tree.
   use('kyazdani42/nvim-web-devicons')
 
+  -- Terminal
+  use('akinsho/toggleterm.nvim')
   -- NERDTree
   use('preservim/nerdtree')
 

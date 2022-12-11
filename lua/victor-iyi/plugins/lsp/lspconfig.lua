@@ -91,9 +91,9 @@ local on_attach = function(client, buffr)
 
   -- float terminal
   -- open floaterm
-  keymap.set('n', '<leader>ft', '<cmd>Lspsaga open_floaterm<cr>', opts)
+  -- keymap.set('n', '<leader>ft', '<cmd>Lspsaga open_floaterm<cr>', opts)
   -- close floaterm
-  keymap.set('t', '<A-d>', [[<c-\><c-n><cmd>Lspsaga close_floaterm<cr>]], opts)
+  -- keymap.set('t', '<A-d>', [[<c-\><c-n><cmd>Lspsaga close_floaterm<cr>]], opts)
   -- if you wan tpass some cli command into terminal you can do like this
   -- open lazygit in Lspsaga float terminal
   -- keymap.set('n', '<A-d>', '<cmd>Lspsaga open_floaterm lazygit<cr>', opts)
