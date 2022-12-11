@@ -39,6 +39,7 @@ keymap.set({ '', 'i' }, '<F1>', '<nop>')
 keymap.set('v', '<leader>y', '"+y') -- Copy selected text to clipboard.
 keymap.set('n', '<leader>p', '"+p') -- Paste from clipboard.
 keymap.set('n', '<leader>P', '"+P') -- Paste above line.
+keymap.set('v', 'p', '_dP') -- paste without replacing buffer contents.
 keymap.set('v', '<leader>=', '<C-W><C-=>') -- Re-indent word until whitespace.
 
 -- Switch buffers.
