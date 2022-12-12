@@ -27,12 +27,14 @@ end
 local packer_bootstrap = ensure_packer()
 
 -- Autocommand that reloads neovim whenever you save this file.
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost packer.lua source <afile> | PackerSync
-  augroup end
-]])
+local api = vim.api
+local user_config = api.nvim_create_augroup('packer_user_config', { clear = true })
+api.nvim_create_autocmd('BufWritePost', {
+  group = user_config,
+  pattern = 'packer.lua',
+  command = [[source <afile> | PackerSync]],
+  desc = 'Autocommand that reloads neovim whenever you save this file.',
+})
 
 -- Plugins.
 local status, packer = pcall(require, 'packer')
@@ -143,7 +145,7 @@ return packer.startup(function(use)
   })
   use({
     'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } },
+    requires = { 'nvim-lua/plenary.nvim' },
   })
 
   -- File assocoiation
@@ -159,7 +161,11 @@ return packer.startup(function(use)
   -- Language server protocol
   -- ==================================================
   -- Conquer of completion for neovim.
-  use({ 'neoclide/coc.nvim', branch = 'release' })
+  use({
+    'neoclide/coc.nvim',
+    branch = 'release',
+    -- run = ':CocInstall coc-rust-analyzer coc-pyright coc-diagnostic'
+  })
 
   -- Autocompletion.
   -- Managing & configurations for Nvim LSP.
@@ -203,6 +209,15 @@ return packer.startup(function(use)
   -- Improve Rust experience.
   use('rust-lang/rust.vim')
 
+  -- Markdown Preview.
+  use({
+    'iamcco/markdown-preview.nvim',
+    run = 'cd app && npm install',
+    setup = function()
+      vim.g.mkdp_filetypes = { 'markdown' }
+    end,
+    ft = { 'markdown' },
+  })
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
