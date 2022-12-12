@@ -133,3 +133,28 @@ if vim.loop.os_uname().sysname == 'Darwin' then
 else
   g.rust_clip_command = 'xclip -selection clipboard'
 end
+
+-- CoC (Conquer of Completion)
+local ext_ok, ext = pcall(require, 'victor-iyi.utils.coc-extensions')
+if not ext_ok then
+  -- Use essential extensions.
+  g.coc_global_extensions = {
+    'coc-rust-analyzer',
+    'coc-pyright',
+    'coc-sumneko-lua',
+    'coc-tsserver',
+    'coc-sh',
+    'coc-docker',
+    'coc-markdownlint',
+    'coc-markdown-preview-enhanced',
+    'coc-diagnostic',
+    'coc-git',
+    'coc-highlight',
+    'coc-json',
+    'coc-yaml',
+    'coc-toml',
+  }
+else
+  -- Use all listed extensions.
+  g.coc_global_extensions = ext.extensions
+end
