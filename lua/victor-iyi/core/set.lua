@@ -18,6 +18,9 @@ local opt = vim.opt
 -- vim global configuration options.
 local g = vim.g
 
+-- Check if we're on MacOs.
+local is_macos = vim.loop.os_uname().sysname == 'Darwin'
+
 -- Use language-specific plugins for indenting.
 vim.cmd('filetype plugin indent on')
 
@@ -128,7 +131,7 @@ g.webdevicons_enable_nerdtree = 1
 
 -- Rust
 -- g.rustfmt_autosave = 1
-if vim.loop.os_uname().sysname == 'Darwin' then
+if is_macos then
   g.rust_clip_command = 'pbcopy'
 else
   g.rust_clip_command = 'xclip -selection clipboard'
@@ -157,4 +160,9 @@ if not ext_ok then
 else
   -- Use all listed extensions.
   g.coc_global_extensions = ext.extensions
+end
+
+-- specify node path on Linux.
+if not is_macos then
+  g.coc_node_path = '/snap/bin/node'
 end
