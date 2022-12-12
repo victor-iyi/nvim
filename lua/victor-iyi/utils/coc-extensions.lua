@@ -44,7 +44,7 @@ local extensions = {
   'coc-sh', -- for `bash` using bash-language-server.
   'coc-snippets', -- provides snippets solution.
   'coc-sql', -- for `sql`.
-  'coc-stylua', -- Stylua (lua formatter) extension
+  -- 'coc-stylua', -- Stylua (lua formatter) extension
   'coc-sumneko-lua', -- Lua extension using sumneko lua-language-server
   'coc-svelte', -- for svelte.
   'coc-toml', -- for `toml` using taplo.
