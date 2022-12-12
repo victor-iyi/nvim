@@ -40,17 +40,24 @@ cmp.setup({
       luasnip.lsp_expand(args.body)
     end,
   },
+  window = {
+    -- Add border around completion menu.
+    completion = cmp.config.window.bordered(),
+    -- Add border around docs menu.
+    documentation = cmp.config.window.bordered(),
+  },
   mapping = cmp.mapping.preset.insert({
-    ['<C-k>'] = cmp.mapping.select_prev_item(),  -- previous suggestion
-    ['<C-j>'] = cmp.mapping.select_next_item(),  -- next suggestion
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),       -- show complete suggestions
-    ['<C-e>'] = cmp.mapping.abort(),              -- close completion window
+    ['<C-p>'] = cmp.mapping.select_prev_item(), -- previous suggestion
+    ['<C-n>'] = cmp.mapping.select_next_item(), -- next suggestion
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4), -- scroll docs up
+    ['<C-f>'] = cmp.mapping.scroll_docs(4), -- scroll docs down
+    ['<C-Space>'] = cmp.mapping.complete(), -- show complete suggestions
+    ['<C-e>'] = cmp.mapping.abort(), -- close completion window
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     }),
+    -- next suggestion.
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -59,7 +66,8 @@ cmp.setup({
       else
         fallback()
       end
-    end, { 'i', 's'}),
+    end, { 'i', 's' }),
+    -- previous suggestion.
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -73,18 +81,18 @@ cmp.setup({
   -- sources for completion.
   sources = cmp.config.sources({
     -- { name = 'luasnip', option = { use_show_condition = false } },   -- Snippets
-    { name = 'buffer' },    -- text within current buffer
-    { name = 'nvim_lsp' },  -- LSP for nvim
-    { name = 'path' },      -- file system paths
-    { name = 'git' },       -- git commits, github issues, merge/pull requests, metions, etc.
+    -- { name = 'buffer' }, -- text within current buffer
+    { name = 'nvim_lsp' }, -- LSP for nvim
+    { name = 'path' }, -- file system paths
+    { name = 'git' }, -- git commits, github issues, merge/pull requests, metions, etc.
     -- { name = 'cmdline' },   -- command line suggestions
-    { name = 'crates' },    -- crates.io dependencies
+    { name = 'crates' }, -- crates.io dependencies
   }),
   -- configure lspkind for vscode like icons_enabled
   formatting = {
     format = lspkind.cmp_format({
       maxwidth = 50,
-      ellipsis_char = '...'
-    })
+      ellipsis_char = '...',
+    }),
   },
 })

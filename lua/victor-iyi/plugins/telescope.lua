@@ -24,11 +24,12 @@ if not builtin_status then
   return
 else
   -- Keymaps.
-  vim.keymap.set('n', '<leader>ff', builtin.find_files)   -- find files in project
-  vim.keymap.set('n', '<leader>fs', builtin.live_grep)    -- find string in project
-  vim.keymap.set('n', '<leader>fc', builtin.grep_string)  -- find string in current file
-  vim.keymap.set('n', '<leader>fb', builtin.buffers)
-  vim.keymap.set('n', '<leader>fh', builtin.help_tags)
+  local keymap = vim.keymap.set
+  keymap('n', '<leader>ff', builtin.find_files) -- find files in project
+  keymap('n', '<leader>fs', builtin.live_grep) -- find string in project
+  keymap('n', '<leader>fc', builtin.grep_string) -- find string in current file
+  keymap('n', '<leader>fb', builtin.buffers)
+  keymap('n', '<leader>fh', builtin.help_tags)
 end
 
 local action_status, actions = pcall(require, 'telescope.actions')
@@ -36,8 +37,7 @@ if not action_status then
   return
 end
 
-
-telescope.setup{
+telescope.setup({
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
@@ -49,8 +49,8 @@ telescope.setup{
         ['<C-k>'] = actions.move_selection_previous,
         ['<C-j>'] = actions.move_selection_next,
         ['<C-q>'] = actions.send_selected_to_qflist + actions.open_qflist,
-      }
-    }
+      },
+    },
   },
   pickers = {
     -- Default configuration for builtin pickers goes here:
@@ -67,8 +67,8 @@ telescope.setup{
     --   extension_config_key = value,
     -- }
     -- please take a look at the readme of the extension you want to configure
-  }
-}
+  },
+})
 
 -- Load fzf
 telescope.load_extension('fzf')

@@ -22,7 +22,7 @@ end
 
 saga.init_lsp_saga({
   -- keybindings for navigation in lspsaga window.
-  move_in_saga = { preev = '<C-k>', next = '<C-j>' },
+  move_in_saga = { preev = '<C-p>', next = '<C-n>' },
   -- use enter to open file with finder
   finder_action_keys = {
     open = '<CR>',
@@ -30,7 +30,7 @@ saga.init_lsp_saga({
   -- use enter to open file with definition preview
   definition_action_keys = {
     edit = '<CR>',
-  }
+  },
 })
 
 -- Show symbols in winbar (nvim 0.8+) or in statusline.
