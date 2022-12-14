@@ -61,6 +61,6 @@ filetype.setup({
     -- Set the filetype of files with a {key} shebang to sh
     shebang = {
       -- dash = 'sh',
-    }
+    },
   },
 })
