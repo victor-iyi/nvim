@@ -38,9 +38,10 @@ keymap.set({ '', 'i' }, '<F1>', '<nop>')
 -- Copy to clipboard
 keymap.set('v', '<leader>y', '"+y') -- Copy selected text to clipboard.
 keymap.set('n', '<leader>p', '"+p') -- Paste from clipboard.
-keymap.set('n', '<leader>P', '"+P') -- Paste above line.
-keymap.set('v', 'p', '_dP') -- paste without replacing buffer contents.
-keymap.set('v', '<leader>=', '<C-W><C-=>') -- Re-indent word until whitespace.
+keymap.set('n', '<leader>P', '"+P') -- Paste line from the clipboard.
+keymap.set('v', 'p', '"_dP') -- paste without replacing selected content.
+keymap.set('v', 'P', '"0P') -- paste line without yanking selected line.
+keymap.set('n', 'x', '"_x') -- Delete without yanking.
 
 -- Switch buffers.
 keymap.set('n', '<leader><leader>', '<C-^>') -- Toggle between buffers.
@@ -57,6 +58,7 @@ keymap.set('n', 'g*', 'g*zz', { silent = true })
 -- Center while navigating half-page.
 keymap.set('n', '<C-d>', '<C-d>zz', { silent = true })
 keymap.set('n', '<C-u>', '<C-u>zz', { silent = true })
+keymap.set('v', '<leader>=', '<C-W><C-=>') -- Re-indent word until whitespace.
 
 -- Center your cursor
 -- zz = center of the window
@@ -70,9 +72,6 @@ keymap.set('n', '<C-u>', '<C-u>zz', { silent = true })
 
 -- clear search highlight
 keymap.set('n', '<leader>nh', ':nohl<CR>')
-
--- Delete without yanking.
-keymap.set('n', 'x', '"_x')
 
 -- Increment and decrement numbers.
 keymap.set('n', '<leader>+', '<C-a>')

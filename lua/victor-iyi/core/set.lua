@@ -45,7 +45,8 @@ opt.laststatus = 2 -- Always show the status line.
 opt.errorbells = false
 
 -- clipboard settings
--- opt.clipboard = 'unnamedplus'  -- Copy/paste between vim and everything else.
+opt.clipboard = 'unnamedplus' -- Copy/paste between vim and everything else.
+-- opt.clipboard = 'unnamed' -- Copy/paste between vim and everything else.
 
 -- tab settings.
 opt.tabstop = 2
