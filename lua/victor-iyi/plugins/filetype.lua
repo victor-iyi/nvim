@@ -32,6 +32,7 @@ filetype.setup({
     },
     -- Set the filetype of any full filename matching the regex to {value}
     complex = {
+      ['.flake8'] = 'dosini',
       ['[\\.]?aliases'] = 'sh',
       ['[\\.]?functions'] = 'sh',
       ['[\\.]?tmux.conf'] = 'tmux',
