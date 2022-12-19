@@ -2,7 +2,7 @@
 --
 -- Licensed under the Apache License, Version 2.0 (the "License");
 -- you may not use this file except in compliance with the License.
--- You may obtain a copy of the License at
+-- You may obtain a copy ofjthe License at
 --
 --     http://www.apache.org/licenses/LICENSE-2.0
 --
@@ -21,8 +21,7 @@ local keymap = vim.keymap -- Alias for vim.api.nvim_set_keymap
 keymap.set({ 'i', 'v' }, '<C-j>', '<ESC>') -- Escape from insert/visual mode.
 keymap.set({ 'i', 'v' }, '<C-k>', '<ESC>') -- Escape from insert/visual mode.
 keymap.set('n', '<leader>w', ':w<CR>') -- Save file.
-keymap.set('n', '<leader>e', ':e!<CR>') -- reload file.
--- keymap.set('n', '<C-e>', ':e!<CR>') -- reload file.
+keymap.set('n', '<leader>r', ':e!<CR>') -- reload file.
 
 keymap.set('', 'H', '^') -- Move cursor to begining of line.
 keymap.set('', 'L', '$') -- Move cursor to end of line.
@@ -113,6 +112,7 @@ keymap.set('n', '<leader>sm', ':MaximizerToggle!<CR>')
 keymap.set('n', '<leader>u', ':UndotreeToggle<CR>')
 
 -- nvim-tree
+keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
 keymap.set('n', '<leader>pt', ':NvimTreeToggle<CR>')
 
 -- NERDTree

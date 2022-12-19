@@ -8,5 +8,6 @@
   "rust-analyzer.enable":  true,
   "rust-analyzer.cargo.target": "aarch64-apple-darwin",
   // Lua
-  "Lua.telemetry.enable": true
+  "Lua.telemetry.enable": true,
+  "snippets.ultisnips.pythonPrompt": false
 }
