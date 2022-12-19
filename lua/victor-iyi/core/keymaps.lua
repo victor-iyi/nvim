@@ -21,6 +21,8 @@ local keymap = vim.keymap -- Alias for vim.api.nvim_set_keymap
 keymap.set({ 'i', 'v' }, '<C-j>', '<ESC>') -- Escape from insert/visual mode.
 keymap.set({ 'i', 'v' }, '<C-k>', '<ESC>') -- Escape from insert/visual mode.
 keymap.set('n', '<leader>w', ':w<CR>') -- Save file.
+keymap.set('n', '<leader>e', ':e!<CR>') -- reload file.
+-- keymap.set('n', '<C-e>', ':e!<CR>') -- reload file.
 
 keymap.set('', 'H', '^') -- Move cursor to begining of line.
 keymap.set('', 'L', '$') -- Move cursor to end of line.
