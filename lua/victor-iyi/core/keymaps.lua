@@ -113,7 +113,7 @@ keymap.set('n', '<leader>u', ':UndotreeToggle<CR>')
 
 -- nvim-tree
 keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
-keymap.set('n', '<leader>pt', ':NvimTreeToggle<CR>')
+-- keymap.set('n', '<leader>pt', ':NvimTreeToggle<CR>')
 
 -- NERDTree
 -- keymap.set('n', '<leader>pt', ':NERDTreeToggle<CR>')
