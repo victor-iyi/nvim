@@ -14,14 +14,21 @@
 
 -- Setup colorscheme.
 local colorscheme = 'nightfly'
+
 local cmd = vim.cmd
 
-local status, _ = pcall(cmd, 'colorscheme nightfly')
+-- Set color scheme.
+local status, _ = pcall(cmd.colorscheme, colorscheme)
+-- local status, _ = pcall(cmd, 'colorscheme ' .. colorscheme)
 
 if not status then
-  vim.notify('colorscheme ' .. colorscheme .. ' not found')
+  vim.notify('colorscheme ' .. colorscheme .. ' not found', vim.log.levels.WARN)
   return
 end
 
 -- Use terminal background.
 cmd('hi Normal ctermbg=none guibg=none')
+
+-- local api = vim.api
+-- api.nvim_set_hl(0, 'Normal', { bg = 'none', ctermbg = 'none' })
+-- api.nvim_set_hl(0, 'NormalFloat', { bg = 'none', ctermbg = 'none' })

@@ -67,6 +67,7 @@ opt.hidden = true
 opt.showmode = false
 opt.joinspaces = false
 
+opt.guifont = { 'CaskaydiaCove Nerd Font', ':h10' }
 opt.printfont = ':h10'
 opt.printencoding = 'UTF-8'
 opt.printoptions = 'paper:letter'
