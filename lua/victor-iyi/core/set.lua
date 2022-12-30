@@ -60,7 +60,10 @@ opt.autoindent = true
 -- line wrapping
 opt.wrap = false
 
-opt.timeoutlen = 300
+-- Time to wait for a mapped sequence to complete.
+-- ie. perform all vim motions in less than 2 secs.
+opt.timeoutlen = 1000
+
 opt.encoding = 'utf-8'
 opt.scrolloff = 8
 opt.hidden = true
