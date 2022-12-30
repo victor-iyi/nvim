@@ -77,14 +77,14 @@ local on_attach = function(client, buffr)
 
   -- only jump to error.
   keymap.set('n', '[e', function()
-    require('lspsaga.diagnostic').goto_prev({ serverity = vim.diagnostic.severity.error })
+    require('lspsaga.diagnostic').goto_prev({ serverity = vim.diagnostic.severity.ERROR })
   end, opts)
   keymap.set('n', ']e', function()
-    require('lspsaga.diagnostic').goto_next({ serverity = vim.diagnostic.severity.error })
+    require('lspsaga.diagnostic').goto_next({ serverity = vim.diagnostic.severity.ERROR })
   end, opts)
 
   -- outline: see outline at the right hand side.
-  keymap.set('n', '<leader>o', '<cmd>lsoutlinetoggle<cr>', opts)
+  keymap.set('n', '<leader>o', '<cmd>LSoutlineToggle<cr>', opts)
 
   -- hover doc: show documentation.
   keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<cr>', opts)
