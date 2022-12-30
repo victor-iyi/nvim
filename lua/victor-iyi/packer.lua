@@ -60,8 +60,13 @@ return packer.startup(function(use)
 
   -- Terminal
   use('akinsho/toggleterm.nvim')
+
   -- NERDTree
   use('preservim/nerdtree')
+  use({
+    'tiagofumo/vim-nerdtree-syntax-highlight',
+    requires = 'preservim/nerdtree',
+  })
 
   -- Undo tree.
   use('mbbill/undotree')
@@ -107,7 +112,12 @@ return packer.startup(function(use)
   use('tpope/vim-fugitive')
 
   -- delete/change/add parentheses/quotes/tags with ease.
-  use('tpope/vim-surround')
+  use({
+    'kylechui/nvim-surround',
+    config = function()
+      require('nvim-surround').setup()
+    end,
+  })
 
   -- comment stuff out with gc, gcc
   use('numToStr/Comment.nvim')

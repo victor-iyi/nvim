@@ -113,11 +113,10 @@ keymap.set('n', '<leader>u', ':UndotreeToggle<CR>')
 
 -- nvim-tree
 keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
--- keymap.set('n', '<leader>pt', ':NvimTreeToggle<CR>')
 
 -- NERDTree
--- keymap.set('n', '<leader>pt', ':NERDTreeToggle<CR>')
---
+keymap.set('n', '<leader>pt', ':NERDTreeToggle<CR>')
+
 -- Formatter.
 keymap.set('n', '<leader>f', ':Format<CR>', { silent = true })
 keymap.set('n', '<leader>F', ':FormatWrite<CR>', { silent = true })
