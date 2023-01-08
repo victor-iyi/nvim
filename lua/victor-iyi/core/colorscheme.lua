@@ -16,7 +16,8 @@
 local colorscheme = 'nightfly'
 local cmd = vim.cmd
 
-local status, _ = pcall(cmd, 'colorscheme nightfly')
+local status, _ = pcall(cmd.colorscheme, colorscheme)
+-- local status, _ pcall(cmd, 'colorscheme ' .. colorscheme)
 
 if not status then
   vim.notify('colorscheme ' .. colorscheme .. ' not found')
