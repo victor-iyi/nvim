@@ -170,3 +170,6 @@ end
 if not is_macos then
   g.coc_node_path = '/snap/bin/node'
 end
+
+-- GitHub copilot
+g.copilot_no_tab_map = true

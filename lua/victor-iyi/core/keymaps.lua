@@ -120,3 +120,11 @@ keymap.set('n', '<leader>pt', ':NERDTreeToggle<CR>')
 -- Formatter.
 keymap.set('n', '<leader>f', ':Format<CR>', { silent = true })
 keymap.set('n', '<leader>F', ':FormatWrite<CR>', { silent = true })
+
+-- GitHub copilot
+vim.cmd([[ imap <silent><script><expr> <C-l> copilot#Accept("\<CR>") ]])
+-- keymap.set('i', '<C-l>', '<Plug>(copilot-accept)', { silent = true })
+keymap.set('i', '<C-k>', '<Plug>(copilot-dismiss)', { silent = true })
+keymap.set('i', '<C-]>', '<Plug>(copilot-next)', { silent = true })
+keymap.set('i', '<C-[>', '<Plug>(copilot-previous)', { silent = true })
+-- keymap.set('i', '<C-\\>', '<Plug>(copilot-suggest)', { silent = true })
