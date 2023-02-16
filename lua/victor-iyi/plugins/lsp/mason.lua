@@ -45,7 +45,7 @@ mason_lsp.setup({
   ensure_installed = {
     'rust_analyzer', -- Rust
     'pyright', -- Python
-    'sumneko_lua', -- Lua
+    'lua_ls', -- Lua
     'bashls', -- Bash
     'clangd', -- C/C++
     'dockerls', -- Docker

@@ -105,7 +105,7 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 -- Language servers to enable.
 local servers = {
   'rust_analyzer', -- Rust
-  'sumneko_lua', -- Lua
+  'lua_ls', -- Lua
   'pyright', -- Python
 }
 
@@ -117,7 +117,7 @@ for _, lsp in ipairs(servers) do
 end
 
 -- configure lua server (with special settings)
-lspconfig['sumneko_lua'].setup({
+lspconfig['lua_ls'].setup({
   capabilities = capabilities,
   on_attach = on_attach,
   settings = { -- custom settings for lua

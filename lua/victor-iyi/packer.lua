@@ -204,7 +204,15 @@ return packer.startup(function(use)
   use('rafamadriz/friendly-snippets')
 
   -- Configuring lsp servers
-  use({ 'glepnir/lspsaga.nvim', branch = 'main' })
+  use({
+    'glepnir/lspsaga.nvim',
+    branch = 'main',
+    requires = {
+      { 'nvim-tree/nvim-web-devicons' },
+      -- Please make sure you install markdown and markdown_inline parser
+      { 'nvim-treesitter/nvim-treesitter' },
+    },
+  })
   use('onsails/lspkind.nvim')
 
   -- Type hints.
