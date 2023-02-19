@@ -33,7 +33,7 @@ end
 -- vim keymap
 local keymap = vim.keymap
 
-local on_attach = function(client, buffr)
+local on_attach = function(_, buffr)
   -- inlay hints.
   -- ih.on_attach(client, buffr)
 
@@ -77,9 +77,11 @@ local on_attach = function(client, buffr)
 
   -- only jump to error.
   keymap.set('n', '[e', function()
+    ---@diagnostic disable-next-line: undefined-global
     require('lspsaga.diagnostic').goto_prev({ serverity = vim.diagnostic.severity.ERROR })
   end, opts)
   keymap.set('n', ']e', function()
+    ---@diagnostic disable-next-line: undefined-global
     require('lspsaga.diagnostic').goto_next({ serverity = vim.diagnostic.severity.ERROR })
   end, opts)
 

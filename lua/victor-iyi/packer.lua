@@ -170,6 +170,14 @@ return packer.startup(function(use)
   -- ==================================================
   -- Language server protocol
   -- ==================================================
+  -- Setup & plugin development.
+  use({
+    'folke/neodev.nvim',
+    config = function()
+      require('neodev').setup()
+    end,
+  })
+
   -- Conquer of completion for neovim.
   use({
     'neoclide/coc.nvim',
