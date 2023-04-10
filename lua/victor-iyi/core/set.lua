@@ -70,10 +70,6 @@ opt.hidden = true
 opt.showmode = false
 opt.joinspaces = false
 
-opt.printfont = ':h10'
-opt.printencoding = 'UTF-8'
-opt.printoptions = 'paper:letter'
-
 -- Always show the sign column. Otherwise it would shift
 -- the text each time diagnostics appear/become resolved.
 opt.signcolumn = 'yes'
