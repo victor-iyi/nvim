@@ -57,10 +57,10 @@ local on_attach = function(_, buffr)
   -- you can edit the definition file in this floatwindow
   -- also support open/vsplit/etc operation check definition_action_keys
   -- support tagstack c-t jump back.
-  keymap.set('n', 'gd', '<cmd>Lspsaga peek_definition<cr>', opts)
+  keymap.set('n', 'gD', '<cmd>Lspsaga peek_definition<cr>', opts)
 
   -- go to declaration
-  keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+  keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
 
   -- go to implementation
   keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts) -- go to implementation
