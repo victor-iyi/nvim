@@ -26,6 +26,7 @@ vim.cmd('filetype plugin indent on')
 
 -- appearance settings
 opt.guicursor = 'n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor'
+opt.guifont = { 'CaskaydiaCove Nerd Font Mono', 'h12' }
 opt.termguicolors = true
 opt.background = 'dark'
 opt.colorcolumn = '80' -- Show line length marker at 80 columns.
