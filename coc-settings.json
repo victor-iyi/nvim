@@ -4,6 +4,15 @@
   "python.linting.pydocstyleArgs": [
       "--ignore E251"
   ],
+  // "python.linting.ruffEnabled": true,
+  "python.formatting.provider": "none",
+  // Ruff
+  "ruff.enable": true,
+  "ruff.useDetectRuffCommand": true,
+  "ruff.autoFixOnSave": true,
+  "ruff.client.codeAction.showDocumantaion.enable": true,
+  "ruff.format.preview": true,
+  "ruff.enableExperimentalFormatter": true,
   // Rust Analyzer
   "rust-analyzer.enable":  true,
   "rust-analyzer.cargo.target": "aarch64-apple-darwin",

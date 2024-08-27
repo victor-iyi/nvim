@@ -109,6 +109,8 @@ local servers = {
   'rust_analyzer', -- Rust
   'lua_ls', -- Lua
   'pyright', -- Python
+  'ruff', -- Python
+  'ruff_lsp', -- Python
 }
 
 for _, lsp in ipairs(servers) do
@@ -138,6 +140,24 @@ lspconfig['lua_ls'].setup({
           [vim.fn.stdpath('config') .. '/lua'] = true,
         },
       },
+    },
+  },
+})
+
+-- configure ruff server (with special settings)
+lspconfig.ruff.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  init_options = {
+    settings = {
+      lint = {
+        enable = true,
+        preview = true,
+      },
+      format = {
+        preview = true,
+      },
+      organizeImports = true,
     },
   },
 })
