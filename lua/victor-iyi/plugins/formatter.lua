@@ -69,7 +69,7 @@ fmt.setup({
       end,
     },
     python = {
-      require('formatter.filetypes.python').autopep8,
+      require('formatter.filetypes.python').ruff,
       -- require('formatter.filetypes.python').black,
     },
   },

@@ -28,17 +28,17 @@ null_ls.setup({
   sources = {
     -- to disable file type use
     -- "formatting.prettier.with({disabled_filetypes: {}}) -- (see null-ls docs)
-    formatting.stylua,        -- lua formatter
-    formatting.rustfmt,       -- rust formatter
-    diagnostics.flake8,       -- python diagnostics
-    diagnostics.luacheck,     -- lua diagnostics
+    formatting.stylua, -- lua formatter
+    formatting.rustfmt, -- rust formatter
+    formatting.ruff, -- python formatter
+    diagnostics.ruff, -- python diagnostics
+    diagnostics.luacheck, -- lua diagnostics
     diagnostics.markdownlint, -- markdown styel & syntax checker.
-    diagnostics.mypy,         -- Python static type checker.
+    diagnostics.mypy, -- Python static type checker.
   },
   -- configure format on save.
   on_attach = function(current_client, bufnr)
     if current_client.supports_method('textDocument/formatting') then
-
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 
       vim.api.nvim_create_autocmd('BufWritePre', {

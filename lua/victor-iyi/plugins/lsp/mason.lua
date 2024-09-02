@@ -44,7 +44,9 @@ mason_lsp.setup({
   -- This setting has no relation with the `automatic_installation` setting.
   ensure_installed = {
     'rust_analyzer', -- Rust
-    'pyright', -- Python
+    'ruff', -- Python
+    'ruff_lsp', -- Python
+    -- 'pyright', -- Python
     'lua_ls', -- Lua
     'bashls', -- Bash
     'clangd', -- C/C++
