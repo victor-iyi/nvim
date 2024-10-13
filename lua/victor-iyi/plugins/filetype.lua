@@ -36,6 +36,7 @@ filetype.setup({
       ['[\\.]?aliases'] = 'sh',
       ['[\\.]?functions'] = 'sh',
       ['[\\.]?tmux.conf'] = 'tmux',
+      ['[\\.]?env'] = 'sh',
     },
 
     -- The same as the ones above except the keys map to functions.
