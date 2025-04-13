@@ -137,6 +137,9 @@ return packer.startup(function(use)
   -- Better % - highlight and navigate matching pattern.
   use('andymass/vim-matchup')
 
+  -- Multiple cursors.
+  use('mg979/vim-visual-multi')
+
   -- ==================================================
   -- Files and folders
   -- ==================================================
