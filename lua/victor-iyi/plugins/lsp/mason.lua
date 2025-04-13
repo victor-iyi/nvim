@@ -45,8 +45,6 @@ mason_lsp.setup({
   ensure_installed = {
     'rust_analyzer', -- Rust
     'ruff', -- Python
-    'ruff_lsp', -- Python
-    -- 'pyright', -- Python
     'lua_ls', -- Lua
     'bashls', -- Bash
     'clangd', -- C/C++

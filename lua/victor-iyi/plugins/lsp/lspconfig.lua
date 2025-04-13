@@ -110,7 +110,6 @@ local servers = {
   'lua_ls', -- Lua
   'pyright', -- Python
   'ruff', -- Python
-  'ruff_lsp', -- Python
 }
 
 for _, lsp in ipairs(servers) do
