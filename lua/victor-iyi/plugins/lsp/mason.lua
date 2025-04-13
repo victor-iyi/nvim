@@ -49,7 +49,6 @@ mason_lsp.setup({
     'bashls', -- Bash
     'clangd', -- C/C++
     'dockerls', -- Docker
-    'tsserver', -- JavaScript/TypeScript
     'diagnosticls', -- Diagnostic (general purpose server)
   },
 
