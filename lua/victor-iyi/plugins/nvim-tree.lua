@@ -123,6 +123,10 @@ tree.setup({
     --     { key = 'X', action = 'collapse_all' },
     --   },
     -- },
+    width = {
+      max = 40,
+      min = 20,
+    },
   },
   renderer = {
     group_empty = true,
