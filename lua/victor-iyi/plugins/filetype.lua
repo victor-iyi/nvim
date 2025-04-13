@@ -37,6 +37,7 @@ filetype.setup({
       ['[\\.]?functions'] = 'sh',
       ['[\\.]?tmux.conf'] = 'tmux',
       ['[\\.]?env'] = 'sh',
+      ['Dockerfile*'] = 'Dockerfile',
     },
 
     -- The same as the ones above except the keys map to functions.
