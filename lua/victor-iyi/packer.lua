@@ -105,6 +105,8 @@ return packer.startup(function(use)
   -- GitHub copilot.
   use('github/copilot.vim')
 
+  -- Gitblame - show git blame information in the sign column.
+  use('f-person/git-blame.nvim')
   -- ==================================================
   -- General purpose plugins.
   -- ==================================================
