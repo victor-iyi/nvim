@@ -77,6 +77,9 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   })
 
+  -- Toggle relative line numbers.
+  use({ 'sitiom/nvim-numbertoggle' })
+
   -- ==================================================
   -- Semantic language support
   -- ==================================================
@@ -249,6 +252,19 @@ return packer.startup(function(use)
     end,
     ft = { 'markdown' },
   })
+
+  -- Render markdown files.
+  use({
+    'MeanderingProgrammer/render-markdown.nvim',
+    after = { 'nvim-treesitter' },
+    -- requires = { 'echasnovski/mini.nvim', opt = true }, -- if you use the mini.nvim suite
+    -- requires = { 'echasnovski/mini.icons', opt = true }, -- if you use standalone mini plugins
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }, -- if you prefer nvim-web-devicons
+    -- config = function()
+    --   require('render-markdown').setup({})
+    -- end,
+  })
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
