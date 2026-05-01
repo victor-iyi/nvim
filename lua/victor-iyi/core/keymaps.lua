@@ -108,6 +108,9 @@ keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 -- vim-maximizer
 keymap.set('n', '<leader>sm', ':MaximizerToggle!<CR>')
 
+-- vim-visual-multi
+-- keymap.set('n', '<leader>M', ':MaximizerToggle!<CR>')
+
 -- undo-tree
 keymap.set('n', '<leader>u', ':UndotreeToggle<CR>')
 

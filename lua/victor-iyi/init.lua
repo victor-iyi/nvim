@@ -34,6 +34,7 @@ require('victor-iyi.plugins.render-markdown')
 require('victor-iyi.plugins.telescope')
 require('victor-iyi.plugins.toggleterm')
 require('victor-iyi.plugins.treesitter')
+require('victor-iyi.plugins.vim-visual-multi')
 
 -- Language server.
 -- require('victor-iyi.plugins.lsp.coc')  -- BUG: keymaps and lsp

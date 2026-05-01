@@ -119,9 +119,6 @@ return packer.startup(function(use)
   -- delete/change/add parentheses/quotes/tags with ease.
   use({
     'kylechui/nvim-surround',
-    config = function()
-      require('nvim-surround').setup()
-    end,
   })
 
   -- comment stuff out with gc, gcc
@@ -239,6 +236,13 @@ return packer.startup(function(use)
   -- use 'jose-elias-alvarez/null-ls.nvim'   -- configure formatters and linters
   -- use 'jayp0521/mason-null-ls.nvim' -- bridges gap b/w mason & null-ls
   use('mhartington/formatter.nvim')
+
+  -- Linting (https://github.com/rshkarin/mason-nvim-lint)
+  use({
+    -- 'williamboman/mason.nvim',
+    'mfussenegger/nvim-lint',
+    'rshkarin/mason-nvim-lint',
+  })
 
   -- Improve Rust experience.
   use('rust-lang/rust.vim')

@@ -16,20 +16,19 @@
 local mason_status, mason = pcall(require, 'mason')
 if not mason_status then
   return
-  -- else
-  -- mason.setup({
-  --   ui = {
-  --     icons = {
-  --       package_installed = "✓",
-  --       package_pending = "➜",
-  --       package_uninstalled = "✗"
-  --     }
-  --   }
-  -- })
 end
 
 -- default configuration.
 mason.setup()
+-- mason.setup({
+--   ui = {
+--     icons = {
+--       package_installed = "✓",
+--       package_pending = "➜",
+--       package_uninstalled = "✗"
+--     }
+--   }
+-- })
 
 -- URL: https://github.com/williamboman/mason-lspconfig.nvim
 local mason_lsp_status, mason_lsp = pcall(require, 'mason-lspconfig')
@@ -62,3 +61,11 @@ mason_lsp.setup({
   --
   -- automatic_installation = false,
 })
+
+-- URL: https://github.com/rshkarin/mason-nvim-lint
+local mason_nvim_lint_status, mason_nvim_lint = pcall(require, 'mason-nvim-lint')
+if not mason_nvim_lint_status then
+  return
+end
+
+mason_nvim_lint.setup()

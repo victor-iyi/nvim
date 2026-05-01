@@ -12,11 +12,13 @@
 -- See the License for the specific language governing permissions and
 -- limitations under the License.
 
+-- URL: https://github.com/neovim/nvim-lspconfig
 -- Language server.
-local lspconfig_status, lspconfig = pcall(require, 'lspconfig')
-if not lspconfig_status then
-  return
-end
+-- Deprecated
+-- local lspconfig_status, lspconfig = pcall(require, 'lspconfig')
+-- if not lspconfig_status then
+--   return
+-- end
 
 -- Completion.
 local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
@@ -32,6 +34,7 @@ end
 
 -- vim keymap
 local keymap = vim.keymap
+local lspconfig = vim.lsp.config
 
 local on_attach = function(_, buffr)
   -- inlay hints.
@@ -113,14 +116,14 @@ local servers = {
 }
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
+  lspconfig(lsp, {
     capabilities = capabilities,
     on_attach = on_attach,
   })
 end
 
 -- configure lua server (with special settings)
-lspconfig['lua_ls'].setup({
+lspconfig('lua_ls', {
   capabilities = capabilities,
   on_attach = on_attach,
   settings = { -- custom settings for lua
@@ -144,7 +147,7 @@ lspconfig['lua_ls'].setup({
 })
 
 -- configure ruff server (with special settings)
-lspconfig.ruff.setup({
+lspconfig('ruff', {
   capabilities = capabilities,
   on_attach = on_attach,
   init_options = {
