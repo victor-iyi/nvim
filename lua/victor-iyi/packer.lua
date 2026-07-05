@@ -94,10 +94,11 @@ return packer.startup(function(use)
     end,
   })
   use({ 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' })
-  use({
-    'p00f/nvim-ts-rainbow',
-    requires = { 'nvim-treesitter/nvim-treesitter' },
-  })
+  -- use({
+  --   'p00f/nvim-ts-rainbow',
+  --   requires = { 'nvim-treesitter/nvim-treesitter' },
+  -- })
+  use({ 'HiPhish/rainbow-delimiters.nvim' })
 
   -- autoclose parens, brackets, quotes, etc.
   use('windwp/nvim-autopairs')
