@@ -10,7 +10,8 @@ return {
       completeUnimported = true,
       semanticTokens = true,
       directoryFilters = { '-.git', '-node_modules', '-.venv' },
-      analyses = { unusedparams = true, unusedwrite = true, nilness = true, shadow = true },
+      -- Real bugs only. `shadow` is left off: it flags every idiomatic `err :=` in an inner scope.
+      analyses = { unusedparams = true, unusedwrite = true, nilness = true },
       codelenses = { generate = true, test = true, tidy = true, upgrade_dependency = true },
       hints = {
         assignVariableTypes = true,

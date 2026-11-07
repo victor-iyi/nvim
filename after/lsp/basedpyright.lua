@@ -24,6 +24,8 @@ return {
       config.settings = vim.tbl_deep_extend('force', config.settings or {}, { python = { pythonPath = python } })
     end
   end,
+  -- Defaults for projects without [tool.basedpyright] / [tool.pyright] / pyrightconfig.json;
+  -- when one exists, its values override everything under `analysis` here.
   settings = {
     basedpyright = {
       disableOrganizeImports = true,
@@ -31,6 +33,12 @@ return {
         -- "recommended" (the default) floods ordinary code with warnings.
         typeCheckingMode = 'standard',
         diagnosticMode = 'openFilesOnly',
+        -- Ruff reports these (F401, F841, F821); showing both doubles every finding.
+        diagnosticSeverityOverrides = {
+          reportUnusedImport = 'none',
+          reportUnusedVariable = 'none',
+          reportUndefinedVariable = 'none',
+        },
         autoImportCompletions = true,
         inlayHints = {
           variableTypes = true,

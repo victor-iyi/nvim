@@ -8,10 +8,14 @@ local icons = {
   [severity.HINT] = '󰌶 ',
 }
 
+-- Inline text only for warnings and errors. Hints ("x is not accessed", inactive cfg
+-- code, unused locals) still grey out the code and appear in `<leader>dl`, `]d` and
+-- Trouble, but don't put a message on every other line.
 local virtual_text = {
   spacing = 2,
   source = 'if_many',
   prefix = '●',
+  severity = { min = severity.WARN },
 }
 
 vim.diagnostic.config({
@@ -21,6 +25,7 @@ vim.diagnostic.config({
   virtual_text = virtual_text,
   virtual_lines = false,
   signs = {
+    severity = { min = severity.INFO },
     text = icons,
     numhl = {
       [severity.ERROR] = 'DiagnosticSignError',

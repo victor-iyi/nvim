@@ -1,0 +1,9 @@
+# Base hadolint rules, used only when a project has no .hadolint.yaml of its own.
+# Keeps correctness and security findings; drops version-pinning and style nags.
+ignored:
+  - DL3008 # Pin versions in apt-get install
+  - DL3013 # Pin versions in pip install
+  - DL3016 # Pin versions in npm install
+  - DL3018 # Pin versions in apk add
+  - DL3028 # Pin versions in gem install
+  - DL3059 # Multiple consecutive RUN instructions

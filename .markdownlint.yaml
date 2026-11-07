@@ -1,5 +1,0 @@
-# Base markdownlint rules for every buffer; a project's own markdownlint config still
-# applies on top of this.
-
-# Line length: prose and tables wrap in the editor, not in the source.
-MD013: false

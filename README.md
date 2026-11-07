@@ -35,7 +35,26 @@ lua/config/
 lua/plugins/             one file per area (ui, editor, treesitter, telescope, ...)
 after/lsp/<server>.lua   per-server overrides merged over nvim-lspconfig
 after/ftplugin/rust.lua  Rust-only keymaps
+lint/                    relaxed base configs for projects that have none
 ```
+
+## Linting & formatting
+
+The project decides. Every linter and formatter reads the project's own config first;
+these defaults apply only where a project has none.
+
+| Language   | Project config that wins                          | Default without one                                           |
+| ---------- | ------------------------------------------------- | ------------------------------------------------------------- |
+| Python     | `pyproject.toml` / `ruff.toml`, `[tool.pyright]`  | ruff's default rules; basedpyright `standard`, no duplicates  |
+| Rust       | `Cargo.toml` `[lints]`, `clippy.toml`, `rustfmt.toml` | clippy defaults; `~/.config/rustfmt/rustfmt.toml`; Cargo edition |
+| Lua        | `stylua.toml`, `.luarc.json`                      | 2 spaces, single quotes                                       |
+| TS / JS    | `tsconfig.json`, ESLint config, `.prettierrc`     | ESLint only runs when the project has a config                |
+| Go         | `.golangci.yml`                                   | gopls + staticcheck; golangci-lint only with a config         |
+| Markdown   | `.markdownlint*` (nearest, even in a sub-folder)  | `lint/.markdownlint.yaml`: no line length, table style, HTML  |
+| Dockerfile | `.hadolint.yaml`                                  | `lint/hadolint.yaml`: no version-pinning nags                 |
+
+Inline diagnostic text shows warnings and errors only; hints (unused, inactive code)
+grey out the code and stay in `<leader>dl`, `]d` and Trouble.
 
 ## Start screen
 

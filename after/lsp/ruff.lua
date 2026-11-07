@@ -1,11 +1,13 @@
--- Python lint, format and import sorting (settings carried over from the previous config).
+-- Python lint, format and import sorting.
 
 ---@type vim.lsp.Config
 return {
   init_options = {
     settings = {
-      lint = { enable = true, preview = true },
-      format = { preview = true },
+      -- pyproject.toml / ruff.toml decide the rules, line length and target version.
+      -- (ruff's default, "editorFirst", lets editor settings override the project.)
+      configurationPreference = 'filesystemFirst',
+      lint = { enable = true },
       organizeImports = true,
     },
   },

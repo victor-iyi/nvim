@@ -1,0 +1,18 @@
+# Base markdownlint rules, used only when a project has no markdownlint config of its own.
+# Chosen from what fired across 80 real Markdown files: drop the noise, keep real issues.
+
+# Line length: 2,665 hits in 75 of 80 files. Prose wraps in the editor, not the source.
+MD013: false
+
+# Table column alignment: prettier already formats tables on save.
+MD060: false
+
+# Inline HTML: READMEs legitimately use badges, <details>, <img width=…>.
+MD033: false
+
+# First line must be a heading: front matter, badges and snippets often come first.
+MD041: false
+
+# Duplicate headings are fine under different parents ("Usage" in two sections).
+MD024:
+  siblings_only: true
