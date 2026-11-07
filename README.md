@@ -20,7 +20,7 @@ To try it next to an existing config, clone it to `~/.config/nvim-v0.12` and run
 
 ## Layout
 
-```
+```text
 init.lua                 load order
 filetype.lua             extra filetype detection
 nvim-pack-lock.json      pinned plugin revisions (commit it)
@@ -31,10 +31,18 @@ lua/config/
   diagnostics.lua        signs, virtual text / virtual lines
   pack.lua               plugin list + build hooks
   lsp.lua                enabled servers + buffer-local LSP keymaps
+  dashboard.lua          start screen for a bare `nvim`
 lua/plugins/             one file per area (ui, editor, treesitter, telescope, ...)
 after/lsp/<server>.lua   per-server overrides merged over nvim-lspconfig
 after/ftplugin/rust.lua  Rust-only keymaps
 ```
+
+## Start screen
+
+`nvim` with no file opens the file tree and a welcome screen: single-key actions
+(`f` find file, `s` find text, `r` recent, `e` tree, `n` new, `g` lazygit, `c` config,
+`u` update plugins, `m` Mason, `q` quit) and recent files on `1`–`8`. `j` / `k` move
+between entries, `<CR>` opens one. `nvim <file>`, `nvim .` and piped input skip it.
 
 ## Maintenance
 

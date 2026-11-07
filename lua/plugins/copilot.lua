@@ -10,4 +10,5 @@ vim.g.copilot_filetypes = {
   yaml = true,
   TelescopePrompt = false,
   ['dap-repl'] = false,
+  dashboard = false,
 }
