@@ -10,17 +10,13 @@ local function dap()
   configured = true
 
   local d = require('dap')
-  local ui = require('dapui')
 
-  ui.setup()
+  -- Opens with a debug session and closes when it ends.
+  require('dap-view').setup({ auto_toggle = true })
 
   -- Mason's debugpy runs the adapter; the debuggee uses the project's venv interpreter.
   local debugpy = vim.fs.joinpath(vim.fn.stdpath('data'), 'mason', 'packages', 'debugpy', 'venv', 'bin', 'python')
   require('dap-python').setup(vim.uv.fs_stat(debugpy) and debugpy or 'python3')
-
-  d.listeners.after.event_initialized.dapui = ui.open
-  d.listeners.before.event_terminated.dapui = ui.close
-  d.listeners.before.event_exited.dapui = ui.close
 
   vim.fn.sign_define('DapBreakpoint', { text = '●', texthl = 'DiagnosticError' })
   vim.fn.sign_define('DapBreakpointCondition', { text = '◆', texthl = 'DiagnosticWarn' })
@@ -51,5 +47,5 @@ end, { desc = 'Debug: conditional breakpoint' })
 
 map('n', '<leader>du', function()
   dap()
-  require('dapui').toggle()
+  require('dap-view').toggle()
 end, { desc = 'Debug: toggle UI' })

@@ -51,7 +51,6 @@ vim.pack.add({
   -- Libraries.
   gh('nvim-lua/plenary.nvim'),
   gh('nvim-tree/nvim-web-devicons'),
-  gh('nvim-neotest/nvim-nio'),
 
   -- UI.
   gh('bluz71/vim-nightfly-colors'),
@@ -119,7 +118,7 @@ vim.pack.add({
 
   -- Debugging.
   gh('mfussenegger/nvim-dap'),
-  gh('rcarriga/nvim-dap-ui'),
+  gh('igorlfs/nvim-dap-view'),
   gh('mfussenegger/nvim-dap-python'),
 
   -- Languages.

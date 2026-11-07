@@ -85,6 +85,64 @@ require('lspsaga').setup({
   beacon = { enable = true },
 })
 
+-- Neovim 0.12 compatibility for the lspsaga code behind `gf` and `<leader>rn`: same
+-- logic as upstream, written with the current APIs (`vim.validate(name, …)` and
+-- `client:request()`). Delete once lspsaga updates layout/init.lua and rename/init.lua.
+do
+  local layout = require('lspsaga.layout')
+  local rename = getmetatable(require('lspsaga.rename'))
+  local rename_ns = vim.api.nvim_create_namespace('LspsagaRename')
+
+  -- Highlights other occurrences of the symbol while the rename prompt is open.
+  function rename.find_reference()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local client = vim.lsp.get_clients({ bufnr = bufnr, method = 'textDocument/references' })[1]
+
+    if not client then
+      return
+    end
+
+    local params = vim.tbl_extend('force', vim.lsp.util.make_position_params(0, client.offset_encoding), {
+      context = { includeDeclaration = true },
+    })
+
+    client:request('textDocument/references', params, function(_, result)
+      for _, ref in ipairs(result or {}) do
+        if ref.range and vim.uri_to_bufnr(ref.uri) == bufnr then
+          local range = ref.range
+          vim.hl.range(
+            bufnr,
+            rename_ns,
+            'RenameMatch',
+            { range.start.line, range.start.character },
+            { range['end'].line, range['end'].character }
+          )
+        end
+      end
+    end, bufnr)
+  end
+
+  ---@diagnostic disable-next-line: duplicate-set-field
+  function layout:setlines(lines)
+    vim.validate('lines', lines, 'table')
+    local bufnr = self.current == 1 and self.left_bufnr or self.right_bufnr
+    vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+
+    return self
+  end
+
+  ---@diagnostic disable-next-line: duplicate-set-field
+  function layout:done(fn)
+    vim.validate('fn', fn, 'function', true)
+
+    if fn then
+      fn(self.left_bufnr, self.left_winid, self.right_bufnr, self.right_winid)
+    end
+
+    return self.left_bufnr, self.left_winid, self.right_bufnr, self.right_winid
+  end
+end
+
 -- ── Trouble ─────────────────────────────────────────────────────────────────────────────
 
 require('trouble').setup({ focus = true })

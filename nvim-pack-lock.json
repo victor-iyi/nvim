@@ -112,9 +112,9 @@
       "rev": "1808458eba2b18f178f990e01376941a42c7f93b",
       "src": "https://github.com/mfussenegger/nvim-dap-python"
     },
-    "nvim-dap-ui": {
-      "rev": "cc9dd33aade7f20bae414d0cba163bc60d4d4b43",
-      "src": "https://github.com/rcarriga/nvim-dap-ui"
+    "nvim-dap-view": {
+      "rev": "8cfadf9e6784f0af5d5efa1e435e77d51ca14741",
+      "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-lint": {
       "rev": "52107ce2076a27a285af781248e2c59bad817cd0",
@@ -123,10 +123,6 @@
     "nvim-lspconfig": {
       "rev": "993d048db0d83d8e8ba3f9cb376456321acdcce3",
       "src": "https://github.com/neovim/nvim-lspconfig"
-    },
-    "nvim-nio": {
-      "rev": "edcc181a875301dd21840189aa2f2f9ad69fc172",
-      "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-numbertoggle": {
       "rev": "704e098c7f056f0dae9407d8651edd3d183f3fff",

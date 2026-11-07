@@ -7,6 +7,14 @@ lint.linters_by_ft = {
   go = { 'golangcilint' },
 }
 
+-- Base rules (line length off); `--config` keeps a project's own config layered on top.
+local markdownlint = lint.linters['markdownlint-cli2']
+markdownlint.args = {
+  '--config',
+  vim.fs.joinpath(vim.fn.stdpath('config'), '.markdownlint.yaml'),
+  '-',
+}
+
 -- Mason installs the linters above.
 require('mason-nvim-lint').setup({
   automatic_installation = #vim.api.nvim_list_uis() > 0,

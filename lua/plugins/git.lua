@@ -40,10 +40,11 @@ require('gitsigns').setup({
   end,
 })
 
+-- Cursor-style: a short gap after the line's text, not pinned to a fixed column.
 require('gitblame').setup({
   enabled = true,
+  message_template = '    <author>, <date> • <summary>',
+  message_when_not_committed = '    You, uncommitted changes',
   date_format = '%r',
-  message_when_not_committed = '',
-  -- Keep blame out of the way of diagnostics' virtual text.
-  virtual_text_column = 100,
+  max_commit_summary_length = 60,
 })

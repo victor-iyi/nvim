@@ -1,7 +1,8 @@
 -- Floating terminal on <leader>ft, plus lazygit on <leader>gg when it is installed.
-require('toggleterm').setup({
+local toggleterm = require('toggleterm')
+
+toggleterm.setup({
   size = 20,
-  open_mapping = '<leader>ft',
   hide_numbers = true,
   shade_terminals = true,
   shading_factor = 2,
@@ -22,6 +23,12 @@ require('toggleterm').setup({
     NormalFloat = { link = 'Normal' },
   },
 })
+
+-- Same modes as toggleterm's `open_mapping` (normal, insert, terminal), but calling the
+-- Lua API: `open_mapping` runs `:ToggleTerm`, which uses the deprecated `vim.validate{}`.
+vim.keymap.set({ 'n', 'i', 't' }, '<leader>ft', function()
+  toggleterm.toggle(vim.v.count)
+end, { desc = 'Floating terminal' })
 
 local lazygit
 
