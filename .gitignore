@@ -1,8 +1,4 @@
-# macOS
 .DS_Store
-
-# Packer plugin manager
-plugin/packer_compiled.lua
-
-# VSCode
-.vscode/
+*.log
+.luarc.json
+spell/*.spl

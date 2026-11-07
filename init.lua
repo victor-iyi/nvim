@@ -1,15 +1,40 @@
--- Copyright 2022 Victor I. Afolabi
+-- Neovim 0.12+ configuration.
 --
--- Licensed under the Apache License, Version 2.0 (the "License");
--- you maybe not use this file except in compliance with the License.
--- You maybe obtain a copy of the License at
---
---     http://www.apache.org/licenses/LICENSE-2.0
---
--- Unless required by applicable law or agreed to in writing, software
--- distributed under the License is distributed on an "AS IS" BASIS,
--- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
--- See the License for the specific language governing permissions and
--- limitations under the License.
+-- Load order matters: leader before any mapping, options before plugins (so plugin
+-- scripts see final values), plugins on the runtimepath before anything requires them.
 
-require('victor-iyi')
+if vim.fn.has('nvim-0.12') == 0 then
+  vim.api.nvim_echo({ { 'This config requires Neovim 0.12+', 'ErrorMsg' } }, true, {})
+  return
+end
+
+vim.g.mapleader = ' '
+vim.g.maplocalleader = '\\'
+
+-- Byte-compile and cache every required Lua module.
+vim.loader.enable()
+
+require('config.options')
+require('config.keymaps')
+require('config.autocmds')
+require('config.pack')
+require('config.diagnostics')
+
+-- UI first so later plugins pick up the colorscheme's highlight groups.
+require('plugins.ui')
+require('plugins.editor')
+require('plugins.treesitter')
+require('plugins.explorer')
+require('plugins.telescope')
+require('plugins.terminal')
+require('plugins.git')
+require('plugins.completion')
+require('plugins.copilot')
+require('plugins.lsp')
+require('plugins.format')
+require('plugins.lint')
+require('plugins.lang')
+require('plugins.dap')
+
+-- Last: needs completion capabilities and Mason's PATH entry in place.
+require('config.lsp')
