@@ -115,7 +115,7 @@ move between entries, `<CR>` opens one. `nvim <file>`, `nvim .` and piped input 
 | ----------------------- | ----------------------------------------------- |
 | Update plugins          | `:lua vim.pack.update()` (or `u` on the start screen) → review → `:write` |
 | Match the lockfile      | `:lua vim.pack.update(nil, { target = 'lockfile' })` (after a `git pull`) |
-| Roll back an update     | `git checkout nvim-pack-lock.json` → `:restart` |
+| Roll back an update     | `git restore nvim-pack-lock.json` → `:restart`  |
 | Remove a dropped plugin | `:lua vim.pack.del({ 'name' })`                 |
 | Servers & tools         | `:Mason`                                        |
 | Parsers                 | `:TSUpdate`, `:TSInstall <lang>`                |
