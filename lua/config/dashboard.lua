@@ -57,6 +57,15 @@ local ACTIONS = {
     end,
   },
   {
+    key = 'a',
+    icon = '\u{f0b79}',
+    label = 'Claude Code',
+    hint = '␣cc',
+    run = function()
+      vim.cmd('ClaudeCode')
+    end,
+  },
+  {
     key = 'c',
     icon = '\u{f013}',
     label = 'Config',

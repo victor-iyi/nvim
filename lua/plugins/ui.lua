@@ -37,6 +37,35 @@ local function lsp_clients()
   return #names > 0 and '\u{f085} ' .. table.concat(names, ' ') or ''
 end
 
+-- Copilot (dimmed while busy, red on errors such as "not signed in") and Claude Code
+-- (shown while a Claude session is connected to this editor).
+local copilot = {
+  function()
+    return '\u{f4b8}'
+  end,
+  cond = function()
+    return package.loaded['sidekick'] ~= nil and require('sidekick.status').get() ~= nil
+  end,
+  color = function()
+    local status = require('sidekick.status').get()
+
+    return status and (status.kind == 'Error' and 'DiagnosticError' or status.busy and 'DiagnosticWarn' or 'Special')
+      or nil
+  end,
+}
+
+local claude = {
+  function()
+    return '\u{f0b79} Claude'
+  end,
+  cond = function()
+    local ok, claudecode = pcall(require, 'claudecode')
+
+    return ok and claudecode.is_claude_connected()
+  end,
+  color = 'Special',
+}
+
 require('lualine').setup({
   options = {
     theme = theme,
@@ -54,6 +83,8 @@ require('lualine').setup({
     lualine_x = {
       vim.ui.progress_status,
       { 'diagnostics', sources = { 'nvim_diagnostic' } },
+      claude,
+      copilot,
       { lsp_clients },
       'filetype',
     },

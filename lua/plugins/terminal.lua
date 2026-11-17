@@ -32,6 +32,25 @@ end, { desc = 'Floating terminal' })
 
 local lazygit
 
+-- Your own lazygit config, plus `lazygit/config.yml` from this repo (AI commit messages on
+-- <c-a>), so the extra keys travel with the Neovim config.
+local function lazygit_env()
+  local ours = vim.fs.joinpath(vim.fn.stdpath('config'), 'lazygit')
+  local files = {}
+  local dir = vim.trim(vim.fn.system({ 'lazygit', '--print-config-dir' }))
+
+  if vim.v.shell_error == 0 and vim.uv.fs_stat(vim.fs.joinpath(dir, 'config.yml')) then
+    table.insert(files, vim.fs.joinpath(dir, 'config.yml'))
+  end
+
+  table.insert(files, vim.fs.joinpath(ours, 'config.yml'))
+
+  return {
+    LG_CONFIG_FILE = table.concat(files, ','),
+    NVIM_LAZYGIT_AI_COMMIT = vim.fs.joinpath(ours, 'ai-commit.sh'),
+  }
+end
+
 vim.keymap.set('n', '<leader>gg', function()
   if vim.fn.executable('lazygit') == 0 then
     vim.notify('lazygit is not installed (brew install lazygit)', vim.log.levels.WARN)
@@ -41,6 +60,7 @@ vim.keymap.set('n', '<leader>gg', function()
   lazygit = lazygit
     or require('toggleterm.terminal').Terminal:new({
       cmd = 'lazygit',
+      env = lazygit_env(),
       direction = 'float',
       hidden = true,
       float_opts = { border = 'curved' },

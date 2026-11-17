@@ -1,0 +1,14 @@
+# Added on top of your own lazygit config when lazygit is opened from Neovim (<leader>gg).
+#
+# Files panel, <c-a>: Claude writes a commit message for the staged changes, following the
+# repository's own convention (or Conventional Commits with a bulleted body when it has none).
+# It lands in lazygit's own commit box (summary + description), which opens by itself:
+# edit it there and press <enter> to commit, or <esc> to keep it for later.
+# Also listed under `?` (keybindings) as "AI: write commit message".
+customCommands:
+  - key: <c-a>
+    context: files
+    description: 'AI: write commit message (Claude)'
+    loadingText: 'Claude is writing your commit message...'
+    # lazygit runs this without a shell, so `sh -c` is what expands the variable.
+    command: "sh -c 'exec sh \"$NVIM_LAZYGIT_AI_COMMIT\"'"

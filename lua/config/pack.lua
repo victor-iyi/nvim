@@ -109,7 +109,12 @@ vim.pack.add({
   gh('saadparwaiz1/cmp_luasnip'),
   gh('rafamadriz/friendly-snippets'),
   gh('onsails/lspkind.nvim'),
-  gh('github/copilot.vim'),
+
+  -- AI: Copilot next-edit suggestions + AI CLIs (sidekick), Claude Code's IDE integration
+  -- (claudecode), chat, inline edits and agents (codecompanion). See `plugins/ai.lua`.
+  gh('folke/sidekick.nvim'),
+  gh('coder/claudecode.nvim'),
+  { src = gh('olimorris/codecompanion.nvim'), version = vim.version.range('^20.0.0') },
 
   -- Formatting & linting.
   gh('mhartington/formatter.nvim'),
@@ -128,3 +133,8 @@ vim.pack.add({
   gh('iamcco/markdown-preview.nvim'),
   gh('MeanderingProgrammer/render-markdown.nvim'),
 }, { confirm = false })
+
+-- copilot.vim only supplies the Copilot language server, which Neovim's own LSP client runs
+-- (see `plugins/copilot.lua`). It is installed and updated with everything else but never
+-- loaded, so its own client doesn't start a second server.
+vim.pack.add({ gh('github/copilot.vim') }, { confirm = false, load = function() end })
