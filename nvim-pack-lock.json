@@ -180,7 +180,7 @@
       "src": "https://github.com/rust-lang/rust.vim"
     },
     "rustaceanvim": {
-      "rev": "88aa21f9466b7b62937c60074774faf73e12de64",
+      "rev": "3afd765a9eb1d243a82f6f2dda95a3721cb8ddef",
       "src": "https://github.com/mrcjkb/rustaceanvim"
     },
     "sidekick.nvim": {

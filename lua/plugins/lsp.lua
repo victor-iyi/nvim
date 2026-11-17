@@ -54,6 +54,14 @@ local function ensure_tools()
         pkg:install()
       end
     end
+
+    -- Mason never upgrades on its own; a stale server (e.g. a rust-analyzer older than
+    -- the project's toolchain) silently loses features, so keep everything current.
+    for _, pkg in ipairs(registry.get_installed_packages()) do
+      if not pkg:is_installing() and pkg:get_installed_version() ~= pkg:get_latest_version() then
+        pkg:install()
+      end
+    end
   end)
 
   -- Newly installed servers attach to already-open buffers without a restart.

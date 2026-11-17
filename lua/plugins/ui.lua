@@ -29,14 +29,6 @@ theme.insert.a.bg = colors.green
 theme.visual.a.bg = colors.violet
 theme.command = { a = { gui = 'bold', bg = colors.yellow, fg = colors.black } }
 
-local function lsp_clients()
-  local names = vim.tbl_map(function(client)
-    return client.name
-  end, vim.lsp.get_clients({ bufnr = 0 }))
-
-  return #names > 0 and '\u{f085} ' .. table.concat(names, ' ') or ''
-end
-
 -- Copilot (dimmed while busy, red on errors such as "not signed in") and Claude Code
 -- (shown while a Claude session is connected to this editor).
 local copilot = {
@@ -85,7 +77,9 @@ require('lualine').setup({
       { 'diagnostics', sources = { 'nvim_diagnostic' } },
       claude,
       copilot,
-      { lsp_clients },
+      -- Spinner while a server is still indexing (rust-analyzer can take minutes on a big
+      -- workspace, and answers nothing until then), ✓ once it is ready.
+      { 'lsp_status', icon = '\u{f085}' },
       'filetype',
     },
     lualine_y = { 'progress' },

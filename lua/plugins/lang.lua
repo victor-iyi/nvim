@@ -13,7 +13,11 @@ vim.g.rustaceanvim = {
   server = {
     default_settings = {
       ['rust-analyzer'] = {
-        cargo = { allFeatures = true, loadOutDirsFromCheck = true, buildScripts = { enable = true } },
+        -- No `allFeatures`: workspaces with mutually exclusive features (e.g. GPU backends)
+        -- would build all of them. Projects choose features in their own rust-analyzer.toml.
+        -- `targetDir`: build into target/rust-analyzer, so its checks never wait on the
+        -- cargo lock held by your own builds (or another editor) and never evict their cache.
+        cargo = { targetDir = true, loadOutDirsFromCheck = true, buildScripts = { enable = true } },
         check = { command = 'clippy', extraArgs = { '--no-deps' } },
         procMacro = { enable = true },
         imports = { granularity = { group = 'module' }, prefix = 'self' },
